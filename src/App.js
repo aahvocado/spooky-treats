@@ -1,12 +1,12 @@
+import './styles/css/App.css';
 import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import BasicPage from './pages/BasicPage'; 
 
 class App extends Component {
   render() {
     return (
       <div className="st-app">
-        SPo o o ooo o o ooo K y yy!
+        <BasicPage />
       </div>
     );
   }
