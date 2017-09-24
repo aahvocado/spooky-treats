@@ -1,22 +1,18 @@
 import './styles/css/App.css';
 import React, { Component } from 'react';
 
-// pages
-import BasicPage from './pages/BasicPage'; 
-
-// controllers
-import ShellyController from './controllers/ShellyController';
-
-// components
-import CardHolder from './components/player/CardHolder';
+// views
+import CandyDisplay from './views/CandyDisplay';
+import CandyMap from './views/CandyMap';
+import CandyInventory from './views/CandyInventory';
 
 class App extends Component {
   render() {
     return (
       <div className="st-app">
-        <BasicPage />
-        <ShellyController />
-        <CardHolder />
+        <CandyDisplay />
+        <CandyMap />
+        <CandyInventory />
       </div>
     );
   }
