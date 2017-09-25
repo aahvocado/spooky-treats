@@ -1,27 +1,28 @@
 import '../styles/css/views/CandyMap.css';
 import React, { Component } from 'react';
-// import PropTypes from 'prop-types';
+import PropTypes from 'prop-types';
 
 export default class CandyMap extends Component {
     static defaultProps = {
         data: [],
+        selectedIdx: 0,
     };
 
     static propTypes = {
         // data: PropTypes.object,
+        selectedIdx: PropTypes.number,
     };
 
     render() {
-        const { data } = this.props;
-        console.log('house data', data);
+        const { data, selectedIdx } = this.props;
 
         const housesList = [];
         data.forEach((hasHouse, idx) => {
             if (hasHouse) {
-                // TODO: this random should be separate from the seed
+                // NOTE: this random should be separate from the seed or created at the end
                 const houseData = {
                     idx: idx,
-                    x: 100 + 75 * idx,
+                    x: 100 * idx,
                     y: 50 + Math.random() * 50,
                     houseType: 'default',
                 };
@@ -30,9 +31,15 @@ export default class CandyMap extends Component {
             }
         });
 
+        const containerStyles = {
+            transform: `translate(${window.innerWidth/2}px, ${0}px)`,
+        }
+
         return (
             <div className="st-map">
-                <div className="st-map--container">
+                <div
+                    className="st-map--container"
+                    style={ containerStyles } >
                     { housesList }
                 </div>
             </div>
