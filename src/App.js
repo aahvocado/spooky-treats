@@ -1,6 +1,8 @@
 import './styles/css/App.css';
 import React, { Component } from 'react';
 
+import GameController from './controllers/GameController'
+
 // views
 import CandyDisplay from './views/CandyDisplay';
 import CandyMap from './views/CandyMap';
