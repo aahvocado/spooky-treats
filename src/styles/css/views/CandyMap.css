@@ -12,3 +12,6 @@
   border: 5px solid #c78c4a;
   color: #232323;
   position: absolute; }
+  .st-house-icon .st-house-icon--button {
+    width: 100%;
+    height: 100%; }

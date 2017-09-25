@@ -18,10 +18,11 @@ export default class CandyMap extends Component {
         const housesList = [];
         data.forEach((hasHouse, idx) => {
             if (hasHouse) {
+                // TODO: this random should be separate from the seed
                 const houseData = {
                     idx: idx,
                     x: 100 + 75 * idx,
-                    y: 200,
+                    y: 50 + Math.random() * 50,
                     houseType: 'default',
                 };
                 const renderedHouse = this.renderHouseIcon(houseData);
@@ -47,12 +48,14 @@ export default class CandyMap extends Component {
             left: x,
             top: y,
         };
+
         return (
             <span
                 key={ `candy-map--house-icon--${idx}-key` }
                 className="st-house-icon"
                 style={ styles } >
-                <button>
+                <button
+                     className="st-house-icon--button" >
                     { `House ${idx}` }
                 </button>
             </span>
