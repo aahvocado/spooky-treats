@@ -1,42 +1,26 @@
-import seedrandom from 'seedrandom';
-import randomstring from 'randomstring';
-import MapMaker from './MapMaker';
-
-const dev = false;
+// import MapMaker from './MapMaker';
+import Utility from './Utility';
 
 var currSeed;
-var rng;
-var playerData;
-var mapData;
+// var playerData;
+// var mapData;
 
-/*
-    Generates a new Seed
-*/
-const makeNewSeed = () => {
-    return dev ? 'HELLOWORLD' : randomstring.generate({ length: 10, charset: 'alphabetic', capitalization: 'uppercase' })
-};
+export default class GameController {
+    /*
+        Sets up a new game
+    */
+    static initNewGame = (seed) => {
+        currSeed = seed || Utility.makeNewSeed();
+        Utility.setSeed(currSeed);
 
-/*
-    Sets up a new game
-*/
-const initNewGame = (seed) => {
-    currSeed = seed || makeNewSeed();
-    rng = seedrandom(currSeed);
-    playerData = {
-
+        // playerData = {};
+        // mapData = {};
     };
-    mapData = {};
+
+    /*
+        Gets this game's seed
+    */
+    static getSeed = () => (this.currSeed);
 }
 
-/*
-    returns a random number
-*/
-const getRng = () => rng();
-
-initNewGame();
-
-export {
-    currSeed,
-    playerData,
-    mapData,
-};
+GameController.initNewGame();
