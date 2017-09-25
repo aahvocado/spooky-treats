@@ -14,7 +14,7 @@ export default class GameController {
         Utility.setSeed(currSeed);
 
         // playerData = {};
-        mapData = makeNewMap(5, 0.5);
+        mapData = makeNewMap(5, 0.3);
     };
 
     /*
@@ -23,4 +23,7 @@ export default class GameController {
     static getSeed = () => (this.currSeed);
 }
 
-GameController.initNewGame();
+export {
+    currSeed,
+    mapData,
+}

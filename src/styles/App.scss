@@ -1,3 +1,5 @@
+@import './Mixins.scss';
+
 .st-app {
     font-size: 15px;  
     color: white;
@@ -15,7 +17,7 @@ body {
     padding: 0;
     font-family: sans-serif;
 
-    background: #232323;
+    background: $st-background;
 }
 ul, ol {
 	list-style: none;

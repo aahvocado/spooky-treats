@@ -1,21 +1,61 @@
 import '../styles/css/views/CandyMap.css';
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
+// import PropTypes from 'prop-types';
 
 export default class CandyMap extends Component {
     static defaultProps = {
-        data: {},
+        data: [],
     };
 
     static propTypes = {
-        data: PropTypes.object,
+        // data: PropTypes.object,
     };
 
     render() {
+        const { data } = this.props;
+        console.log('house data', data);
+
+        const housesList = [];
+        data.forEach((hasHouse, idx) => {
+            if (hasHouse) {
+                const houseData = {
+                    idx: idx,
+                    x: 100 + 75 * idx,
+                    y: 200,
+                    houseType: 'default',
+                };
+                const renderedHouse = this.renderHouseIcon(houseData);
+                housesList.push(renderedHouse);
+            }
+        });
+
         return (
             <div className="st-map">
-                show the neighborhood
+                <div className="st-map--container">
+                    { housesList }
+                </div>
             </div>
+        );
+    }
+
+    /*
+        renders a house icon
+    */
+    renderHouseIcon(data) {
+        const { idx, x, y } = data;
+        const styles = {
+            left: x,
+            top: y,
+        };
+        return (
+            <span
+                key={ `candy-map--house-icon--${idx}-key` }
+                className="st-house-icon"
+                style={ styles } >
+                <button>
+                    { `House ${idx}` }
+                </button>
+            </span>
         );
     }
 }

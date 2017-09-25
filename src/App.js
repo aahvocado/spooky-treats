@@ -1,8 +1,8 @@
 import './styles/css/App.css';
 import React, { Component } from 'react';
 
-import './controllers/GameController';
-import './controllers/Utility';
+import GameController, { mapData } from './controllers/GameController';
+// import Utility from './controllers/Utility';
 
 // views
 import CandyDisplay from './views/CandyDisplay';
@@ -12,16 +12,17 @@ import CandyInventory from './views/CandyInventory';
 class App extends Component {
 	constructor() {
 		super();
-		this.state = {
-
-		}
+		// start a new game
+		GameController.initNewGame();
 	}
 
 	render() {
 		return (
 			<div className="st-app">
 				<CandyDisplay />
-				<CandyMap />
+				<CandyMap
+					data={ mapData }
+				/>
 				<CandyInventory />
 			</div>
 		);
