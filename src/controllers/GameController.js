@@ -1,22 +1,37 @@
 import seedrandom from 'seedrandom';
+import randomstring from 'randomstring';
 import MapMaker from './MapMaker';
 
-// TODO: actually generate a new string as a seed
-const newSeed = () => { return 'HELLOWORLD' };
+const dev = false;
 
 var currSeed;
 var rng;
+var playerData;
+var mapData;
 
-const playerData = {
-    playerName: "Default",
+/*
+    Generates a new Seed
+*/
+const makeNewSeed = () => {
+    return dev ? 'HELLOWORLD' : randomstring.generate({ length: 10, charset: 'alphabetic', capitalization: 'uppercase' })
 };
 
-const mapData = {};
-
+/*
+    Sets up a new game
+*/
 const initNewGame = (seed) => {
-    currSeed = seed || newSeed();
+    currSeed = seed || makeNewSeed();
     rng = seedrandom(currSeed);
+    playerData = {
+
+    };
+    mapData = {};
 }
+
+/*
+    returns a random number
+*/
+const getRng = () => rng();
 
 initNewGame();
 

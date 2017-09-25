@@ -5,6 +5,7 @@
   "dependencies": {
     "node-sass-chokidar": "0.0.3",
     "prop-types": "^15.5.10",
+    "randomstring": "^1.1.5",
     "react": "^15.6.1",
     "react-dom": "^15.6.1",
     "react-scripts": "1.0.12",
