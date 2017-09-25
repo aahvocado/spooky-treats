@@ -2,7 +2,7 @@ import seedrandom from 'seedrandom';
 import randomstring from 'randomstring';
 
 var dev = true;
-var randomNumberGenerator = () => (console.log('fubar'));
+var randomNumberGenerator = () => {};
 
 export default class Utility {
 	/*

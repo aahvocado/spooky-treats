@@ -1,9 +1,9 @@
-// import MapMaker from './MapMaker';
 import Utility from './Utility';
+import { makeNewMap } from './MapMaker';
 
 var currSeed;
 // var playerData;
-// var mapData;
+var mapData;
 
 export default class GameController {
     /*
@@ -14,7 +14,7 @@ export default class GameController {
         Utility.setSeed(currSeed);
 
         // playerData = {};
-        // mapData = {};
+        mapData = makeNewMap(5, 0.5);
     };
 
     /*
