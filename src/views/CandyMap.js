@@ -2,16 +2,20 @@ import '../styles/css/views/CandyMap.css';
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
+import MapHouse from '../components/MapHouse';
+
 export default class CandyMap extends Component {
     static defaultProps = {
         data: [],
         selectedIdx: 0,
-    };
+        onHouseDidClick: () => Promise.resolve(),
+    }
 
     static propTypes = {
         data: PropTypes.array,
         selectedIdx: PropTypes.number,
-    };
+        onHouseDidClick: PropTypes.func,
+    }
 
     render() {
         const { data } = this.props;
@@ -19,7 +23,12 @@ export default class CandyMap extends Component {
         const housesList = [];
         data.forEach((houseData, idx) => {
             if (houseData) {                
-                housesList.push(this.renderHouseIcon(houseData));
+                housesList.push(
+                    <MapHouse
+                        key={ `candy-map--map-house-${idx}-key` }
+                        data={ houseData }
+                        onHouseClick={ this.handleHouseClick } />
+                );
             }
         });
 
@@ -39,26 +48,10 @@ export default class CandyMap extends Component {
     }
 
     /*
-        renders a house icon
-        @param {object} the data created by MapMaker.js
+        tells App.js what house was clicked
     */
-    renderHouseIcon(data) {
-        const { idx, x, y } = data;
-        const styles = {
-            left: x,
-            top: y,
-        };
-
-        return (
-            <span
-                key={ `candy-map--house-icon--${idx}-key` }
-                className="st-house-icon"
-                style={ styles } >
-                <button
-                     className="st-house-icon--button" >
-                    { `House ${idx}` }
-                </button>
-            </span>
-        );
+    handleHouseClick = (idx) => {
+        const { onHouseClick } = this.props;
+        onHouseClick(idx);
     }
 }

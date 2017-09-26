@@ -22,10 +22,15 @@ class App extends Component {
 				<CandyDisplay />
 				<CandyMap
 					data={ mapData }
+					onHouseClick={ this.handleHouseClick }
 				/>
 				<CandyInventory />
 			</div>
 		);
+	}
+
+	handleHouseClick = (idx) => {
+		console.log('clicked on house idx', idx);
 	}
 }
 
