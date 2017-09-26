@@ -9,25 +9,17 @@ export default class CandyMap extends Component {
     };
 
     static propTypes = {
-        // data: PropTypes.object,
+        data: PropTypes.array,
         selectedIdx: PropTypes.number,
     };
 
     render() {
-        const { data, selectedIdx } = this.props;
+        const { data } = this.props;
 
         const housesList = [];
-        data.forEach((hasHouse, idx) => {
-            if (hasHouse) {
-                // NOTE: this random should be separate from the seed or created at the end
-                const houseData = {
-                    idx: idx,
-                    x: 100 * idx,
-                    y: 50 + Math.random() * 50,
-                    houseType: 'default',
-                };
-                const renderedHouse = this.renderHouseIcon(houseData);
-                housesList.push(renderedHouse);
+        data.forEach((houseData, idx) => {
+            if (houseData) {                
+                housesList.push(this.renderHouseIcon(houseData));
             }
         });
 
@@ -48,6 +40,7 @@ export default class CandyMap extends Component {
 
     /*
         renders a house icon
+        @param {object} the data created by MapMaker.js
     */
     renderHouseIcon(data) {
         const { idx, x, y } = data;
