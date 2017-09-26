@@ -3,7 +3,7 @@
 $house-size: 80px;
 
 .st-map {
-	height: 40vh;
+	height: 300px;
 	flex: 0 0 auto;
 	background: $st-basil;
 }
@@ -12,6 +12,9 @@ $house-size: 80px;
 	position: relative;
 
     transition: transform 1s;
+
+    width: 100%;
+    height: 100%;
 }
 
 .st-house-icon {

@@ -5,6 +5,8 @@ var currSeed;
 // var playerData;
 var mapData;
 
+// TODO: global constant variables
+
 export default class GameController {
     /*
         Sets up a new game

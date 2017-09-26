@@ -9,11 +9,13 @@ export default class MapHouse extends Component {
     static defaultProps = {
         data: {},
         onHouseClick: () => Promise.resolve(),
+        isSelected: false, // is this selected 
     }
 
     static propTypes = {
         data: PropTypes.object,
         onHouseClick: PropTypes.func,
+        isSelected: PropTypes.bool,
     }
 
     render() {
@@ -39,11 +41,11 @@ export default class MapHouse extends Component {
 
     /*
         tells CandyMap.js what house was clicked
+
+        passes up this house's data
     */
     handleHouseClick = () => {
-        const { data } = this.props;
-        const { idx } = data;
-        const { onHouseClick } = this.props;
-        onHouseClick(idx);
+        const { onHouseClick, data } = this.props;
+        onHouseClick(data);
     }
 }

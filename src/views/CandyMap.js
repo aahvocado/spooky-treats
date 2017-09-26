@@ -7,18 +7,18 @@ import MapHouse from '../components/MapHouse';
 export default class CandyMap extends Component {
     static defaultProps = {
         data: [],
-        selectedIdx: 0,
+        selectedHouse: undefined,
         onHouseDidClick: () => Promise.resolve(),
     }
 
     static propTypes = {
         data: PropTypes.array,
-        selectedIdx: PropTypes.number,
+        selectedHouse: PropTypes.object,
         onHouseDidClick: PropTypes.func,
     }
 
     render() {
-        const { data } = this.props;
+        const { data, selectedHouse } = this.props;
 
         const housesList = [];
         data.forEach((houseData, idx) => {
@@ -27,13 +27,24 @@ export default class CandyMap extends Component {
                     <MapHouse
                         key={ `candy-map--map-house-${idx}-key` }
                         data={ houseData }
-                        onHouseClick={ this.handleHouseClick } />
+                        onHouseClick={ this.handleHouseClick }
+                        isSelected={ selectedHouse ? selectedHouse.idx === houseData.idx : false } />
                 );
             }
         });
 
         const containerStyles = {
-            transform: `translate(${window.innerWidth/2}px, ${0}px)`,
+            
+        }
+
+        if (selectedHouse) {
+            const houseSize = 80; // TODO: global var
+            const mapHeight = 300; // TODO: global var
+            const { x, y } = selectedHouse;
+            // Calculate by finding the center of the Map then offsetting by the House's position
+            const xOffset = (window.innerWidth / 2) - x - (houseSize / 2);
+            const yOffset = (mapHeight / 2) - (houseSize / 2) - (y / 2); 
+            containerStyles.transform = `translate(${xOffset}px, ${yOffset}px)`;
         }
 
         return (
@@ -50,8 +61,8 @@ export default class CandyMap extends Component {
     /*
         tells App.js what house was clicked
     */
-    handleHouseClick = (idx) => {
+    handleHouseClick = (house) => {
         const { onHouseClick } = this.props;
-        onHouseClick(idx);
+        onHouseClick(house);
     }
 }

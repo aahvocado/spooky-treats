@@ -14,14 +14,21 @@ class App extends Component {
 		super();
 		// start a new game
 		GameController.initNewGame();
+
+		this.state = {
+			selectedHouse: undefined,
+		}
 	}
 
 	render() {
+		const { selectedHouse } = this.state;
+
 		return (
 			<div className="st-app">
 				<CandyDisplay />
 				<CandyMap
 					data={ mapData }
+					selectedHouse={ selectedHouse }
 					onHouseClick={ this.handleHouseClick }
 				/>
 				<CandyInventory />
@@ -29,8 +36,8 @@ class App extends Component {
 		);
 	}
 
-	handleHouseClick = (idx) => {
-		console.log('clicked on house idx', idx);
+	handleHouseClick = (house) => {
+		this.setState({ selectedHouse: house });
 	}
 }
 

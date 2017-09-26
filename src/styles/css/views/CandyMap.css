@@ -1,11 +1,13 @@
 .st-map {
-  height: 40vh;
+  height: 300px;
   flex: 0 0 auto;
   background: #7a9c7a; }
 
 .st-map--container {
   position: relative;
-  transition: transform 1s; }
+  transition: transform 1s;
+  width: 100%;
+  height: 100%; }
 
 .st-house-icon {
   width: 80px;
