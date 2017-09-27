@@ -43,7 +43,8 @@ class App extends Component {
 	}
 
 	handleHouseClick = (house) => {
-		const currentNode = GameController.getStoryNode();
+		const currentNode = GameController.getRandomNode()[0];
+
 		this.setState({
 			selectedHouse: house,
 			currentNode: currentNode,

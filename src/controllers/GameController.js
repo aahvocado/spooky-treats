@@ -1,6 +1,6 @@
 import Utility from './Utility';
 import { makeNewMap } from './MapMaker';
-import { exampleNode } from '../pages/StoryNodes';
+import StoryNodes from '../pages/StoryNodes';
 
 var currSeed;
 // var playerData;
@@ -9,8 +9,8 @@ var mapData;
 // TODO: global constant variables
 
 export default class GameController {
-    static getStoryNode = () => {
-        return exampleNode;
+    static getRandomNode = () => {
+        return StoryNodes.getNode({ id: 1 });
     };
     /*
         Sets up a new game

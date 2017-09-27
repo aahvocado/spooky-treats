@@ -2,3 +2,13 @@
 	flex: 1 1 auto;
 	background: lightred;
 }
+
+.st-display--left,
+.st-display--right {
+	flex: 0 0 auto;
+}
+
+.st-display--middle {
+	flex: 1 1 auto;
+	padding: 1rem;
+}
