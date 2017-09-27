@@ -1,7 +1,7 @@
 import seedrandom from 'seedrandom';
 import randomstring from 'randomstring';
 
-var dev = !true;
+var dev = true;
 var randomNumberGenerator = () => {};
 
 export default class Utility {

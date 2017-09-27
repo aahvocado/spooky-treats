@@ -1,7 +1,7 @@
 import './styles/css/App.css';
 import React, { Component } from 'react';
 
-import GameController, { mapData } from './controllers/GameController';
+import GameController from './controllers/GameController';
 // import Utility from './controllers/Utility';
 
 // views
@@ -12,20 +12,26 @@ import CandyInventory from './views/CandyInventory';
 class App extends Component {
 	constructor() {
 		super();
-		// start a new game
-		GameController.initNewGame();
-
 		this.state = {
 			selectedHouse: undefined,
 		}
 	}
 
+	componentWillMount() {
+		// start a new game
+		GameController.initNewGame();
+	}
+
 	render() {
-		const { selectedHouse } = this.state;
+		const { selectedHouse, currentNode } = this.state;
+
+		const mapData = GameController.getMapData();
 
 		return (
 			<div className="st-app">
-				<CandyDisplay />
+				<CandyDisplay
+					data={ currentNode }
+				/>
 				<CandyMap
 					data={ mapData }
 					selectedHouse={ selectedHouse }
@@ -37,7 +43,11 @@ class App extends Component {
 	}
 
 	handleHouseClick = (house) => {
-		this.setState({ selectedHouse: house });
+		const currentNode = GameController.getStoryNode();
+		this.setState({
+			selectedHouse: house,
+			currentNode: currentNode,
+		});
 	}
 }
 

@@ -17,4 +17,6 @@
   position: absolute; }
   .st-house-icon .st-house-icon--button {
     width: 100%;
-    height: 100%; }
+    height: 100%;
+    background: #232323;
+    color: white; }
