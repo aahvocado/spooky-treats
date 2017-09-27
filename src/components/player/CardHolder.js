@@ -1,4 +1,4 @@
-import '../../styles/css/CardHolder.css';
+import '../../styles/css/components/player/CardHolder.css';
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
