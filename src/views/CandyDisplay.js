@@ -2,6 +2,7 @@ import '../styles/css/views/CandyDisplay.css';
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
+// 
 export default class CandyDisplay extends Component {
     static defaultProps = {
         data: {},
@@ -14,16 +15,30 @@ export default class CandyDisplay extends Component {
     };
 
     render() {
-        const { data } = this.props;
-        const { displayText } = data;
-
         return (
             <div className="st-display">
                 <div className="st-display--left"></div>
-                <div className="st-display--middle">
+                { this.renderActionContent() }
+                <div className="st-display--right"></div>
+            </div>
+        );
+    }
+
+    // TODO: move to own component
+    renderActionContent() {
+        const { data } = this.props;
+        const { displayText } = data;
+
+        const displayActions = 'continue';
+
+        return (
+            <div className="st-display--middle">
+                <div className="st-display-text">
                     { displayText }
                 </div>
-                <div className="st-display--right"></div>
+                <div className="st-display-actions">
+                    { displayActions }
+                </div>
             </div>
         );
     }
