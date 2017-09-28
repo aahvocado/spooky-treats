@@ -33,7 +33,21 @@ export default class CandyDisplay extends Component {
         const { data } = this.props;
         const { displayText, actionSet } = data;
 
+        let actionButtonList = [];
         const hasAction = (actionSet && actionSet.length > 0);
+        if (hasAction) {
+            actionButtonList = actionSet.map((action, idx) => {
+                return (
+                    <DisplayButton
+                        key={ `candy-display--action-button--${idx}`}
+                        action={ action }
+                        onClick={ this.handleDisplayAction }
+                    >
+                        { action.text }
+                    </DisplayButton>
+                );
+            });
+        }
 
         return (
             <div className="st-display--middle">
@@ -42,12 +56,7 @@ export default class CandyDisplay extends Component {
                 </div>
                 <div className="st-display-actions">
                     { hasAction &&
-                        <DisplayButton
-                            actionId={ actionSet[0] }
-                            onClick={ this.handleDisplayAction }
-                        >
-                            button
-                        </DisplayButton>
+                        actionButtonList
                     }
                 </div>
             </div>

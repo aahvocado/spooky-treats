@@ -55,6 +55,7 @@ class App extends Component {
 
 	/*
 		A House was clicked
+		@param {object} house - MapHouse data object
 	*/
 	handleHouseClick = (house) => {
 		const newNode = GameController.getRandomNode();
@@ -67,9 +68,10 @@ class App extends Component {
 
 	/*
 		A StoryNode action was clicked
+		@param {object} action - ActionSet object from StoryNode
 	*/
-	handleNodeActionClick = (actionId) => {
-		const newNode = GameController.getNodeById(actionId);
+	handleNodeActionClick = (action) => {
+		const newNode = GameController.getNodeById(action.targetId);
 		this.handleNodeChange(newNode);
 	}
 }

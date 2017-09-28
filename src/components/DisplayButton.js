@@ -5,12 +5,12 @@ import PropTypes from 'prop-types';
 // 
 export default class CandyDisplay extends Component {
     static defaultProps = {
-        actionId: -1,
+        action: {},
         onClick: () => Promise.resolve(),
     };
 
     static propTypes = {
-        actionId: PropTypes.number,
+        action: PropTypes.object,
         onClick: PropTypes.func,
     };
 
@@ -28,7 +28,7 @@ export default class CandyDisplay extends Component {
     }
 
     handleOnClick = () => {
-        const { onClick, actionId } = this.props;
-        onClick(actionId);
+        const { onClick, action } = this.props;
+        onClick(action);
     }
 }

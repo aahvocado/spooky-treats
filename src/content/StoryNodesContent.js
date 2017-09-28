@@ -16,7 +16,9 @@ const nodesList = [
 	},
 	{
 		id: 1,
-		actionSet: [2],
+		actionSet: [
+			{ text: "Next", targetId: 2 }
+		],
 		tags: [NODE_TAGS.NARRATIVE],
 		displayText: 'Hello! Welcome to SpoOOOoooOOoky Treats!',
 	},
