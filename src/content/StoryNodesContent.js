@@ -20,7 +20,7 @@ const nodesList = [
 			{ text: "Next", targetId: 2 }
 		],
 		tags: [NODE_TAGS.NARRATIVE],
-		displayText: 'Hello! Welcome to SpoOOOoooOOoky Treats!',
+		displayText: 'Hello! Welcome to SpoOOOoooOOoky Treats!\nThis is a game about getting as much candy as possible!',
 	},
 	{
 		id: 2,

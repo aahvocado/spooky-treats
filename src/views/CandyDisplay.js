@@ -1,6 +1,7 @@
 import '../styles/css/views/CandyDisplay.css';
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import nl2br from 'react-newline-to-break';
 
 import DisplayButton from '../components/DisplayButton';
 
@@ -52,7 +53,7 @@ export default class CandyDisplay extends Component {
         return (
             <div className="st-display--middle">
                 <div className="st-display-text">
-                    { displayText }
+                    { nl2br(displayText) }
                 </div>
                 <div className="st-display-actions">
                     { hasAction &&

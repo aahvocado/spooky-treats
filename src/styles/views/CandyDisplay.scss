@@ -1,6 +1,8 @@
 @import '../Mixins.scss';
 
 .st-display {
+    border-bottom: 3px solid $st-orange-leaves;
+
 	flex: 1 1 auto;
 	height: 100%;
 	background: $st-background;
@@ -11,7 +13,7 @@
     padding-left: 10%;
     padding-right: 10%;
 
-    border-bottom: 3px solid $st-orange-leaves;
+    line-height: 2rem;
 }
 
 .st-display--left,
