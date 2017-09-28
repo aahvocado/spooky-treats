@@ -13,7 +13,7 @@ export default class CandyItemManager {
 			tags: string
 		@return {object} - CandyItem object returns an array of found nodes
 	*/
-	static getNode = (filter = {}) => {
+	static getItem = (filter = {}) => {
 		const { id } = filter;
 		let found = [];
 		if (id) {

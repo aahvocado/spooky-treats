@@ -4,17 +4,19 @@ import PropTypes from 'prop-types';
 
 export default class CandyInventory extends Component {
     static defaultProps = {
-        data: {},
+        data: [],
     };
 
     static propTypes = {
-        data: PropTypes.object,
+        data: PropTypes.array,
     };
 
     render() {
+        const { data } = this.props;
+
         return (
             <div className="st-inventory">
-                show the inventory
+                { `inventory has ${data.length} items` }
             </div>
         );
     }

@@ -26,6 +26,7 @@ class App extends Component {
 		const { selectedHouse, currentNode } = this.state;
 
 		const mapData = GameController.getMapData();
+		const inventory = GameController.getInventory();
 
 		return (
 			<div className="st-app">
@@ -38,7 +39,9 @@ class App extends Component {
 					selectedHouse={ selectedHouse }
 					onHouseClick={ this.handleHouseClick }
 				/>
-				<CandyInventory />
+				<CandyInventory
+					data={ inventory }
+				/>
 			</div>
 		);
 	}
