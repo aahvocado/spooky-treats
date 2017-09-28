@@ -1,0 +1,9 @@
+$st-candy-item-size: 50px;
+
+.st-candy-item {
+	border: 3px solid white;
+	border-radius: 50%;
+
+	width: $st-candy-item-size;
+	height: $st-candy-item-size;
+}
