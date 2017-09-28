@@ -1,5 +1,5 @@
 import Utility from './Utility';
-import { makeNewMap } from './MapMaker';
+import { makeNewMap, addPredefinedMaps } from './MapMaker';
 import StoryNodes from './StoryNodes';
 import CandyItemManager from './CandyItemManager';
 
@@ -10,6 +10,21 @@ var inventory;
 // TODO: global constant variables
 
 export default class GameController {
+    /*
+        Gets a House by Id
+        @param {int} id - id of House
+        @return {object} - House
+    */
+    static getHouseById = (id) => {
+        for (var i=0; i<mapData.length; i++) {
+            const aHouse = mapData[i];
+            if (aHouse.id === id) {
+                return aHouse;
+            }
+        }
+        return undefined;
+    };
+
      /*
         Gets a node by Id
         @param {int} id - id of storynode
@@ -50,7 +65,9 @@ export default class GameController {
         inventory = [];
 
         // new random map data
-        mapData = makeNewMap(5, 0.3);
+        mapData = addPredefinedMaps(makeNewMap(5, 0.3));
+
+        // start at first house
     };
 
     /*

@@ -20,6 +20,9 @@ class App extends Component {
 	componentWillMount() {
 		// start a new game
 		GameController.initNewGame();
+
+		// load into the first house
+		this.handleHouseClick(GameController.getHouseById(0));
 	}
 
 	render() {
@@ -61,7 +64,8 @@ class App extends Component {
 		@param {object} house - MapHouse data object
 	*/
 	handleHouseClick = (house) => {
-		const newNode = GameController.getRandomNode();
+		const { storyNodes } = house;
+		const newNode = storyNodes[0] || GameController.getRandomNode();
 		this.setState({
 			selectedHouse: house,
 		}, () => {

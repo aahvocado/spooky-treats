@@ -33,9 +33,7 @@ export default class CandyMap extends Component {
             }
         });
 
-        const containerStyles = {
-            
-        }
+        const containerStyles = {};
 
         if (selectedHouse) {
             const houseSize = 80; // TODO: global var
