@@ -4,3 +4,7 @@
   height: 120px;
   flex: 0 0 auto;
   background: #232323; }
+
+.st-inventory--list {
+  display: flex;
+  flex-direction: row; }

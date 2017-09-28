@@ -9,3 +9,7 @@
 	flex: 0 0 auto;
 	background: $st-background;
 }
+.st-inventory--list {
+	display: flex;
+	flex-direction: row;
+}

@@ -24,6 +24,7 @@ export default class CandyItem extends Component {
             <li
                 className="st-candy-item" >
                 <button
+                    className="st-candy-item--button"
                     onClick={ this.handleOnClick }
                 >
                     { children }

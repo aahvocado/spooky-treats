@@ -23,9 +23,9 @@ export default class CandyInventory extends Component {
         return (
             <div className="st-inventory">
                 { `inventory has ${data.length} items` }
-                <div>
+                <ul className="st-inventory--list">
                     { this.renderInventoryItems() }
-                </div>
+                </ul>
             </div>
         );
     }

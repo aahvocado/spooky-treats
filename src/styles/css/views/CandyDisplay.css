@@ -1,4 +1,5 @@
 .st-display {
+  border-bottom: 3px solid #c78c4a;
   flex: 1 1 auto;
   height: 100%;
   background: #232323;
@@ -6,7 +7,7 @@
   flex-direction: row;
   padding-left: 10%;
   padding-right: 10%;
-  border-bottom: 3px solid #c78c4a; }
+  line-height: 2rem; }
 
 .st-display--left,
 .st-display--right {
