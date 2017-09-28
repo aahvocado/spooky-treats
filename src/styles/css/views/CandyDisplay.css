@@ -1,6 +1,9 @@
 .st-display {
   flex: 1 1 auto;
-  background: lightred; }
+  height: 100%;
+  background: #232323;
+  display: flex;
+  flex-direction: row; }
 
 .st-display--left,
 .st-display--right {
@@ -8,4 +11,16 @@
 
 .st-display--middle {
   flex: 1 1 auto;
-  padding: 1rem; }
+  height: 100%;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  text-align: left; }
+
+.st-display-text {
+  flex: 1 1 auto; }
+
+.st-display-actions {
+  flex: 0 0 auto;
+  height: 50px; }
