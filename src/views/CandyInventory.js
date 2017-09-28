@@ -10,19 +10,17 @@ import CandyItem from '../components/CandyItem';
 */
 export default class CandyInventory extends Component {
     static defaultProps = {
-        data: [],
+        inventory: [],
     };
 
     static propTypes = {
-        data: PropTypes.array,
+        inventory: PropTypes.array,
     };
 
     render() {
-        const { data } = this.props;
 
         return (
             <div className="st-inventory">
-                { `inventory has ${data.length} items` }
                 <ul className="st-inventory--list">
                     { this.renderInventoryItems() }
                 </ul>
@@ -31,9 +29,9 @@ export default class CandyInventory extends Component {
     }
 
     renderInventoryItems() {
-        const { data } = this.props;
+        const { inventory } = this.props;
 
-        let renderList = data.map((item, idx) => {
+        let renderList = inventory.map((item, idx) => {
             return (
                 <CandyItem
                     key={ `candy-inventory--item--${idx}-key` }

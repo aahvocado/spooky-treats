@@ -1,12 +1,10 @@
 @import '../Mixins.scss';
 
 .st-inventory {
-	border-top: 3px solid $st-orange-leaves;
-
 	padding: 1rem;
+	flex: 1 1 auto;
 
 	height: 120px;
-	flex: 0 0 auto;
 	background: $st-background;
 }
 .st-inventory--list {

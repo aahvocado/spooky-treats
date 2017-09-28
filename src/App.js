@@ -7,7 +7,7 @@ import GameController from './controllers/GameController';
 // views
 import CandyDisplay from './views/CandyDisplay';
 import CandyMap from './views/CandyMap';
-import CandyInventory from './views/CandyInventory';
+import CandyStatusBar from './views/CandyStatusBar';
 
 class App extends Component {
 	constructor() {
@@ -39,8 +39,8 @@ class App extends Component {
 					selectedHouse={ selectedHouse }
 					onHouseClick={ this.handleHouseClick }
 				/>
-				<CandyInventory
-					data={ inventory }
+				<CandyStatusBar
+					inventory={ inventory }
 				/>
 			</div>
 		);
