@@ -1,5 +1,5 @@
 /*
-	All Story Nodes
+	All Item Content
 */
 const ITEM_TAGS = {
 	NARRATIVE: 'narrative-bone',
@@ -10,43 +10,43 @@ const candyList = [
 	{
 		id: 0, // unique id of this item
 		tags: [ITEM_TAGS.NARRATIVE], // tags this item might be related to
-		text: 'Error',
+		name: 'Error',
 		description: 'You got an ERROR'
 	},
 	{
 		id: 1,
-		tags: [ITEM_TAGS.BONES], // tags this item might be related to
-		text: 'BoneBreaker',
+		tags: [ITEM_TAGS.BONES],
+		name: 'BoneBreaker',
 		description: 'I have never heard of no jaw bone.',
 	},
 	{
 		id: 2,
-		tags: [], // tags this item might be related to
-		text: 'Bloodypop',
+		tags: [],
+		name: 'Bloodypop',
 		description: 'Mmmmm...',
 	},
 	{
 		id: 3,
-		tags: [], // tags this item might be related to
-		text: 'Kittycorn',
+		tags: [],
+		name: 'Kittycorn',
 		description: 'Mmmmm...',
 	},
 	{
 		id: 4,
-		tags: [], // tags this item might be related to
-		text: 'Gummyworms',
+		tags: [],
+		name: 'Gummyworms',
 		description: 'Mmmmm...',
 	},
 	{
 		id: 5,
-		tags: [], // tags this item might be related to
-		text: 'Devil Bar',
+		tags: [],
+		name: 'Devil Bar',
 		description: 'Mmmmm...',
 	},
 	{
 		id: 6,
-		tags: [ITEM_TAGS.NARRATIVE], // tags this item might be related to
-		text: 'Generic Chocolate Pieces',
+		tags: [ITEM_TAGS.NARRATIVE],
+		name: 'Generic Chocolate Pieces',
 		description: 'Gross.',
 	},
 ];
