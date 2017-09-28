@@ -74,6 +74,14 @@ class App extends Component {
 		const newNode = GameController.getNodeById(action.targetId);
 		this.handleNodeChange(newNode);
 	}
+
+	/*
+		A House was clicked
+		@param {object} house - MapHouse data object
+	*/
+	handleReceiveItem = (item) => {
+		GameController.receiveItem(item);
+	}
 }
 
 export default App;

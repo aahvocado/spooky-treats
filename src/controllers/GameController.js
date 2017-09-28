@@ -1,6 +1,7 @@
 import Utility from './Utility';
 import { makeNewMap } from './MapMaker';
-import StoryNodes from '../pages/StoryNodes';
+import StoryNodes from './StoryNodes';
+import CandyItemManager from './CandyItemManager';
 
 var currSeed;
 // var playerData;
@@ -24,6 +25,14 @@ export default class GameController {
     */
     static getRandomNode = () => {
         return StoryNodes.getNode({ id: 1 });
+    };
+
+    /*
+        Give the player an item
+        @return {object} - StoryNode
+    */
+    static receiveItem = (id) => {
+        return CandyItemManager.getItem({ id: 1});
     };
 
     /*
