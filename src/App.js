@@ -31,6 +31,7 @@ class App extends Component {
 			<div className="st-app">
 				<CandyDisplay
 					data={ currentNode }
+					onNodeAction={ this.handleNodeActionClick }
 				/>
 				<CandyMap
 					data={ mapData }
@@ -42,13 +43,34 @@ class App extends Component {
 		);
 	}
 
-	handleHouseClick = (house) => {
-		const currentNode = GameController.getRandomNode()[0];
+	/*
+		Changes to a Story Node
+		@param {object} - a StoryNode object
+	*/
+	handleNodeChange = (node) => {
+		this.setState({
+			currentNode: node,
+		});
+	}
 
+	/*
+		A House was clicked
+	*/
+	handleHouseClick = (house) => {
+		const newNode = GameController.getRandomNode();
 		this.setState({
 			selectedHouse: house,
-			currentNode: currentNode,
+		}, () => {
+			this.handleNodeChange(newNode);
 		});
+	}
+
+	/*
+		A StoryNode action was clicked
+	*/
+	handleNodeActionClick = (actionId) => {
+		const newNode = GameController.getNodeById(actionId);
+		this.handleNodeChange(newNode);
 	}
 }
 

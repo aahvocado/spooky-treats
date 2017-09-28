@@ -31,7 +31,9 @@ export default class CandyDisplay extends Component {
     // TODO: move to own component
     renderActionContent() {
         const { data } = this.props;
-        const { displayText } = data;
+        const { displayText, actionSet } = data;
+
+        const hasAction = (actionSet && actionSet.length > 0);
 
         return (
             <div className="st-display--middle">
@@ -39,11 +41,21 @@ export default class CandyDisplay extends Component {
                     { displayText }
                 </div>
                 <div className="st-display-actions">
-                    <DisplayButton>
-                        button
-                    </DisplayButton>
+                    { hasAction &&
+                        <DisplayButton
+                            actionId={ actionSet[0] }
+                            onClick={ this.handleDisplayAction }
+                        >
+                            button
+                        </DisplayButton>
+                    }
                 </div>
             </div>
         );
+    }
+
+    handleDisplayAction = (action) => {
+        const { onNodeAction } = this.props;
+        onNodeAction(action);
     }
 }

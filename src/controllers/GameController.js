@@ -9,11 +9,26 @@ var mapData;
 // TODO: global constant variables
 
 export default class GameController {
+     /*
+        Gets a node by Id
+        @param {int} id - id of storynode
+        @return {object} - StoryNode
+    */
+    static getNodeById = (id) => {
+        return StoryNodes.getNode({ id: id });
+    };
+
+    /*
+        Gets a random node
+        @return {object} - StoryNode
+    */
     static getRandomNode = () => {
         return StoryNodes.getNode({ id: 1 });
     };
+
     /*
         Sets up a new game
+        @param {string} seed - 10 digit seed string
     */
     static initNewGame = (seed) => {
         currSeed = seed || Utility.makeNewSeed();

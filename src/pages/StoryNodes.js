@@ -22,8 +22,8 @@ export default class StoryNodes {
 				found.push(currSearch);
 			}
 		}
-		return found.length > 0 ? found : [nodesList[0]];
-	}
+		return found.length > 0 ? found[0] : nodesList[0];
+	};
 
 	/*
 		get all story nodes
