@@ -11,27 +11,25 @@ export default class MapHouse extends Component {
         data: {},
         onHouseClick: () => Promise.resolve(),
         isSelected: false, // is this selected 
-        isVisited: false,
     }
 
     static propTypes = {
         data: PropTypes.object,
         onHouseClick: PropTypes.func,
         isSelected: PropTypes.bool,
-        isVisited: PropTypes.bool,
     }
 
     render() {
-        const { data, isVisited } = this.props;
-        const { id, x, y } = data;
+        const { data } = this.props;
+        const { id, x, y, visited } = data;
         const style = {
             left: x,
             top: y,
         };
 
         const modifiers = {
-            'mod-visited': isVisited,
-            'mod-not-visited': !isVisited,
+            'mod-visited': visited,
+            'mod-not-visited': !visited,
         };
 
         return (

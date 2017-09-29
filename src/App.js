@@ -66,11 +66,14 @@ class App extends Component {
 	handleHouseClick = (house) => {
 		const { storyNodes } = house;
 		const newNode = storyNodes[0] || GameController.getRandomNode();
-		this.setState({
-			selectedHouse: house,
-		}, () => {
-			this.handleNodeChange(newNode);
-		});
+		if (!house.visited) {
+			house.visited = true; // TODO: this might need to be improved?
+			this.setState({
+				selectedHouse: house,
+			}, () => {
+				this.handleNodeChange(newNode);
+			});
+		}
 	}
 
 	/*
