@@ -81,8 +81,17 @@ class App extends Component {
 		@param {object} action - ActionSet object from StoryNode
 	*/
 	handleNodeActionClick = (action) => {
-		const newNode = GameController.getNodeById(action.targetId);
-		this.handleNodeChange(newNode);
+		const { targetId, giveItemId, giveSkillId } = action;
+		if (giveItemId) {
+			GameController.receiveItem(giveItemId);
+		}
+		if (giveSkillId) {
+			// GameController.receiveSkill(giveSkillId);
+		}
+		if (targetId) {
+			const newNode = GameController.getNodeById(action.targetId);
+			this.handleNodeChange(newNode);
+		}
 	}
 
 	/*

@@ -1,7 +1,8 @@
 .st-display {
   border-bottom: 3px solid #c78c4a;
   flex: 1 1 auto;
-  height: 200px;
+  min-height: 200px;
+  height: auto;
   background: #232323;
   display: flex;
   flex-direction: row;
@@ -15,7 +16,7 @@
 
 .st-display--middle {
   flex: 1 1 auto;
-  height: 100%;
+  height: auto;
   padding: 1rem;
   display: flex;
   flex-direction: column;
@@ -23,8 +24,14 @@
   text-align: left; }
 
 .st-display-text {
-  flex: 1 1 auto; }
+  flex: 1 1 auto;
+  height: auto;
+  min-height: 50px; }
 
 .st-display-actions {
-  flex: 0 0 auto;
-  height: 50px; }
+  flex: 1 1 auto;
+  min-height: 50px;
+  height: auto;
+  display: flex;
+  align-items: flex-end;
+  flex-wrap: wrap; }
