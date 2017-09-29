@@ -7,30 +7,52 @@ const NODE_TAGS = {
 	MEDIUM: 'medium-node',
 };
 
+const defaultStoryNode = {
+	id: -1, // unique id of this node
+	tags: [], // tags this node might be related to
+	displayText: 'Error Story Node', // text
+	actionSet: [], // list of ids which will point to other node actions
+};
+
+/*
+	copies defaultStoryNode values and adds additional values
+	@param {object} additions - values you want to replace in the defaultStoryNode
+	@return {object} - StoryNode data
+*/
+const makeNewNode = (additions = {}) => {
+	const newNode = Object.assign({}, defaultStoryNode);
+	return Object.assign(newNode, additions);
+};
+
 const nodesList = [
-	{
-		id: 0, // unique id of this node
-		actionSet: [], // references to other node actions
-		tags: [NODE_TAGS.NARRATIVE], // tags this node might be related to
-		displayText: 'Error: Searched for the wrong story node!',
-	},
-	{
-		id: 1,
+	makeNewNode({
+		id: 0,
+		tags: [NODE_TAGS.NARRATIVE], 
+		displayText: 'Still here, kiddo?\nIt\'s Halloween!\nGo out and get some candy.',
 		actionSet: [
-			{ text: "Next", targetId: 2 }
+			{ text: 'Next', targetId: 1 }
 		],
-		tags: [NODE_TAGS.NARRATIVE],
-		displayText: 'Hello! Welcome to SpoOOOoooOOoky Treats!\nThis is a game about getting as much candy as possible!',
-	},
-	{
+	}),
+	makeNewNode({
+		id: 1,
+		tags: [NODE_TAGS.NARRATIVE], 
+		displayText: 'Watch out though, some other tricker treaters might try to trick you out of your candy.',
+		actionSet: [
+			{ text: 'Next', targetId: 2 }
+		],
+	}),
+	makeNewNode({
 		id: 2,
+		tags: [NODE_TAGS.NARRATIVE], 
+		displayText: 'Anyway, let me see what costumes I might have... What do you think of these?',
 		actionSet: [],
-		tags: [NODE_TAGS.NARRATIVE],
-		displayText: 'Click on a house to go Trick and Treating!',
-	},
+	}),
+
 ];
 
 export {
 	NODE_TAGS,
 	nodesList,
+	defaultStoryNode,
+	makeNewNode,
 };

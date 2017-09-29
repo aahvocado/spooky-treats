@@ -66,8 +66,6 @@ export default class GameController {
 
         // new random map data
         mapData = addPredefinedMaps(makeNewMap(5, 0.3));
-
-        // start at first house
     };
 
     /*

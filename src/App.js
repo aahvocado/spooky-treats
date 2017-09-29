@@ -83,7 +83,6 @@ class App extends Component {
 	handleNodeActionClick = (action) => {
 		const newNode = GameController.getNodeById(action.targetId);
 		this.handleNodeChange(newNode);
-		this.handleReceiveItem(0);
 	}
 
 	/*

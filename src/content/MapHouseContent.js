@@ -33,7 +33,7 @@ const houseList = [
 	makeNewHouse({
 		id: 0,
 		tags: [HOUSE_TAGS.NARRATIVE],
-		storyNodes: [StoryNodes.getNode({ id: 1 })]
+		storyNodes: [StoryNodes.getNode({ id: 0 })]
 	}),
 ];
 
