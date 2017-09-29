@@ -1,7 +1,5 @@
 @import '../Mixins.scss';
 
-$house-size: 80px;
-
 .st-map {
 	height: 300px;
 	flex: 0 0 auto;
@@ -15,20 +13,4 @@ $house-size: 80px;
 
     width: 100%;
     height: 100%;
-}
-
-.st-house-icon {
-	width: $house-size;
-	height: $house-size;
-	border: 5px solid $st-orange-leaves;
-	color: $st-background;
-
-	position: absolute;
-
-	.st-house-icon--button {
-		width: 100%;
-		height: 100%;
-		background: $st-background;
-		color: white;
-	}
 }

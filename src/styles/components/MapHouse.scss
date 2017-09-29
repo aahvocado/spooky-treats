@@ -1,0 +1,28 @@
+@import '../Mixins.scss';
+
+.st-map-house {
+	width: $house-size;
+	height: $house-size;
+	border: 5px solid;
+	color: $st-background;
+
+	position: absolute;
+
+	&:not(.mod-visited):not(.mod-not-visited) {
+		border-color: $st-orange-leaves;
+	}
+	&.mod-visited {
+		border-color: red;
+	}
+	&.mod-not-visited {
+		border-color: green;
+	}
+
+	.st-map-house--button {
+		width: 100%;
+		height: 100%;
+		background: $st-background;
+		color: white;
+	}
+
+}
