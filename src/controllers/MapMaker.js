@@ -1,5 +1,7 @@
-import StoryNodes from './StoryNodes';
 import Utility from './Utility';
+
+import { houseList, makeNewHouse } from '../content/MapHouseContent';
+
 
 /*
 	Make a completely new map
@@ -18,16 +20,19 @@ const makeNewMap = (mapLength, houseChance) => {
 }
 
 /*
-	Creates a random House
-	@param {int} what number'th house this is
+	Creates a random House 
+	TODO: move to MapHouseContent probably
+	@param {int} idx - unique id of this house... we're using an index
+	@return {object} - returns a unique house with type
 */
 const createHouse = (idx) => {
 	const variant = Math.floor(Utility.rng() * 4);
-	const houseData = Object.assign(getGenericHouseObject(idx), {
+	const houseData = makeNewHouse({
 		id: idx,
         x: 100 * idx,
         y: 50 + Math.random() * 50,
 	});
+
     switch(variant) {
 		default:
 			houseData.houseType = "default";
@@ -41,31 +46,12 @@ const createHouse = (idx) => {
 */
 const addPredefinedMaps = (existingMaps) => {
 	// intro
-	existingMaps.push(
-		Object.assign(getGenericHouseObject(0), {
-			storyNodes: [StoryNodes.getNode({ id: 1 })],
-		}));
+	existingMaps.push(houseList[0]);
 	return existingMaps;
-}
-
-/*
-	Creates an generic house Object, this is what it should look like
-	@param {array} existingMaps - tell me what maps we already have
-	@return {object} - returns a House object
-*/
-const getGenericHouseObject = (id) => {
-	return {
-		id: id,
-		x: 100, // probably want to recalculate
-		y: 50 + Math.random() * 50,
-		storyNodes: [],
-		actionSet: [],
-	};
 }
 
 export {
 	makeNewMap,
 	createHouse,
 	addPredefinedMaps,
-	getGenericHouseObject,
 }
