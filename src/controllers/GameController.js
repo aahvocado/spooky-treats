@@ -2,6 +2,7 @@ import Utility from './Utility';
 import { makeNewMap, addPredefinedMaps } from './MapMaker';
 import StoryNodes from './StoryNodes';
 import CandyItemManager from './CandyItemManager';
+import SkillEffectsManager from './SkillEffectsManager';
 
 var currSeed;
 var mapData;
@@ -47,7 +48,17 @@ export default class GameController {
         @return {object} - StoryNode
     */
     static receiveItem = (id) => {
-        const newItem = CandyItemManager.getItem({ id: 1 });
+        const newItem = CandyItemManager.getItem({ id: id });
+        inventory.push(newItem);
+        return newItem;
+    };
+
+    /*
+        Give the player an item
+        @return {object} - Skill
+    */
+    static receiveSkill = (id) => {
+        const newItem = SkillEffectsManager.getSkill({ id: id });
         inventory.push(newItem);
         return newItem;
     };
