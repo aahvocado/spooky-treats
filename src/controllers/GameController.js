@@ -44,6 +44,7 @@ export default class GameController {
 
     /*
         Give the player an item
+        @param {string} id - id of item to receive
         @return {object} - StoryNode
     */
     static receiveItem = (id) => {
@@ -54,6 +55,7 @@ export default class GameController {
 
     /*
         Give the player an item
+        @param {string} id - id of skill to receive
         @return {object} - Skill
     */
     static receiveSkill = (id) => {

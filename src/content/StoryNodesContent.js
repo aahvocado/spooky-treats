@@ -1,6 +1,3 @@
-/*
-	All Story Nodes
-*/
 const NODE_TAGS = {
 	NARRATIVE: 'narrative-node',
 	EASY: 'easy-node',
@@ -27,6 +24,9 @@ const makeNewNode = (additions = {}) => {
 	return Object.assign(newNode, additions);
 };
 
+/*
+	All Story Nodes
+*/
 const nodesList = [
 	makeNewNode({
 		id: 0,

@@ -1,14 +1,16 @@
-/*
-	All Item Content
-*/
 const ITEM_TAGS = {
 	NARRATIVE: 'narrative-bone',
 	BONES: 'bone-item'
 };
-
+const ITEM_IDS = {
+	BONEBREAKER: 'bonebreaker-item-id',
+};
+/*
+	All Item Content
+*/
 const candyList = [
 	{
-		id: 0, // unique id of this item
+		id: ITEM_IDS.BONEBREAKER, // unique id of this item
 		tags: [ITEM_TAGS.NARRATIVE], // tags this item might be related to
 		name: 'Error',
 		description: 'You got an ERROR'
