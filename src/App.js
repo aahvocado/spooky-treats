@@ -35,14 +35,15 @@ class App extends Component {
 
 		return (
 			<div className="st-app">
-				<CandyDisplay
-					data={ currentNode }
-					onNodeAction={ this.handleNodeActionClick }
-				/>
 				<CandyMap
 					data={ mapData }
 					selectedHouse={ selectedHouse }
 					onHouseClick={ this.handleHouseClick }
+				/>
+                <div className="arrow_box" />
+				<CandyDisplay
+					data={ currentNode }
+					onNodeAction={ this.handleNodeActionClick }
 				/>
 				<CandyStatusBar
 					inventory={ inventory }

@@ -3,7 +3,9 @@
 .st-map {
 	height: 300px;
 	flex: 0 0 auto;
-	background: $st-basil;
+	background: $st-orange-leaves;
+
+	overflow: hidden;
 }
 
 .st-map--container {

@@ -1,8 +1,10 @@
 @import '../Mixins.scss';
 
 .st-status-bar {
-	border-top: 3px solid $st-orange-leaves;
+	border-top: 2px solid $st-basil;
 
 	display: flex;
 	flex-direction: row;
+
+	height: 100px;
 }

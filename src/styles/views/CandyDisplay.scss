@@ -1,7 +1,7 @@
 @import '../Mixins.scss';
 
 .st-display {
-    border-bottom: 3px solid $st-orange-leaves;
+	border-top: 4px solid $st-basil;
 
 	flex: 1 1 auto;
 	min-height: 200px;
@@ -14,7 +14,29 @@
     padding-left: 10%;
     padding-right: 10%;
 
-    line-height: 2rem;
+    span + span {
+    	margin-top: 10px;
+    	display: block; // forgive me css gods
+    }
+}
+// thank cssarrowplease
+.arrow_box {
+	position: relative;
+	background: $st-basil;
+}
+.arrow_box::after {
+	bottom: 100%;
+	left: 50%;
+	border: solid transparent;
+	content: " ";
+	height: 0;
+	width: 0;
+	position: absolute;
+	pointer-events: none;
+	border-color: rgba(136, 183, 213, 0);
+	border-bottom-color: $st-basil;
+	border-width: 30px;
+	margin-left: -30px;
 }
 
 .st-display--left,
@@ -38,9 +60,11 @@
 	flex: 1 1 auto;
 	height: auto;
 	min-height: 50px;
+
+	overflow-y: auto;
 }
 .st-display-actions {
-	flex: 1 1 auto;
+	flex: 0 0 auto;
 	min-height: 50px;
 	height: auto;
 
