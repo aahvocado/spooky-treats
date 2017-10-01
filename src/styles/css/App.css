@@ -13,11 +13,12 @@
   right: 0;
   bottom: 0;
   z-index: 2;
-  background-color: rgba(0, 0, 0, 0.5); }
+  transition: background-color 600ms; }
   .st-overlay.mod-enabled {
-    display: block; }
+    background-color: rgba(0, 0, 0, 0.5); }
   .st-overlay:not(.mod-enabled) {
-    display: none; }
+    background-color: transparent;
+    pointer-events: none; }
 
 .arrow_box {
   position: relative;

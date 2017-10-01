@@ -19,13 +19,14 @@
     bottom: 0;
     z-index: 2;
 
-    background-color: rgba(0, 0, 0, 0.5);
+    transition: background-color 600ms;
 
     &.mod-enabled {
-        display: block;
+        background-color: rgba(0, 0, 0, 0.5);
     }
     &:not(.mod-enabled) {
-        display: none;
+        background-color: rgba(0, 0, 0, 0);
+        pointer-events: none;
     }
 }
 
@@ -36,7 +37,7 @@
 }
 .arrow_box::after {
     z-index: 5;
-    
+
     bottom: 100%;
     left: 50%;
     border: solid transparent;

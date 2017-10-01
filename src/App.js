@@ -33,7 +33,8 @@ class App extends Component {
 		const inventory = GameController.getInventory();
 		const skills = GameController.getSkills();
 
-		const inConversation = currentNode !== undefined;
+		const hasActions = currentNode && currentNode.actionSet && currentNode.actionSet.length > 0;
+		const inConversation = hasActions;
 
 		return (
 			<div className="st-app">

@@ -50,7 +50,7 @@ export default class CandyMap extends Component {
 
         return (
             <div className="st-map">
-                <div className={ cn('st-overlay', 'mod-enabled': disabled) } />
+                <div className={ cn('st-overlay', {'mod-enabled': disabled}) } />
                 <div
                     className="st-map--container"
                     style={ containerStyles } >
