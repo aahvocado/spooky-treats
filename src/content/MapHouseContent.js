@@ -1,21 +1,13 @@
-import StoryNodes from '../controllers/StoryNodes';
-
-/*
-	All Map Houses
-*/
-const HOUSE_TAGS = {
-	NARRATIVE: 'narrative-node',
-	EASY: 'easy-node',
-	MEDIUM: 'medium-node',
-};
+import { TAGS } from './Constants';
+import { STORY_IDS } from './StoryNodesContent';
 
 const defaultMapHouse = {
 	id: -1, // unique id of this house
 	tags: [], // tags this house might be related to
 	nearbyTags: [], // type of StoryNodes that might be nearby
-	storyNodes: [], // StoryNode objcts that will show up when clicked
+	storyNodeId: '', // StoryNode objcts that will show up when clicked
 	x: 100,
-	y: 50 + Math.random() * 50,
+	y: 50,
 	visited: false,
 };
 
@@ -29,17 +21,19 @@ const makeNewHouse = (additions = {}) => {
 	return Object.assign(newHouse, additions);
 };
 
+/*
+	All MapHouse
+*/
 const houseList = [
 	makeNewHouse({
 		id: 0,
-		tags: [HOUSE_TAGS.NARRATIVE],
-		storyNodes: [StoryNodes.getNode({ id: 0 })]
+		tags: [TAGS.NARRATIVE],
+		storyNodeId: STORY_IDS.BEGINNING_NARRATIVE_1,
 	}),
 ];
 
 
 export {
-	HOUSE_TAGS,
 	defaultMapHouse,
 	makeNewHouse,
 	houseList,
