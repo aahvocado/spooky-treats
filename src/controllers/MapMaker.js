@@ -50,7 +50,7 @@ const makeNewMap = (mapLength, houseChance) => {
 				break;
 		}
 		newHouse.x = (SIZES.HOUSE + SIZES.HOUSE_DISTANCE) * i;
-        newHouse.y = 50;
+        newHouse.y = 20;
 		newCandyMap.push(newHouse);
 	}
 	return newCandyMap;

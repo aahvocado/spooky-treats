@@ -12,17 +12,18 @@
 		border-color: $st-orange-leaves;
 	}
 	&.mod-visited {
-		border-color: red;
+		border-color: $st-apple-red;
 	}
 	&.mod-not-visited {
-		border-color: green;
+		border-color: $st-dirty-beige;
 	}
 
 	.st-map-house--button {
-		width: 100%;
-		height: 100%;
-		background: $st-background;
+		width: 250px;
+    	height: 350px;
+		background: $st-dirty-beige;
 		color: white;
+	    margin-top: 30px;
 	}
 
 }

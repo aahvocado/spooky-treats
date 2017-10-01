@@ -89,7 +89,7 @@ class App extends Component {
 		const mapData = GameController.getMapData();
 		const nextHouse = mapData[nextIdx];
 		const nextNode = nextHouse.storyNodeId ? GameController.getNodeById(nextHouse.storyNodeId) : undefined;
-		console.log('nextHouse', nextHouse);
+
 		this.setState({
 			selectedHouseIdx: nextIdx,
 			selectedHouse: nextHouse,
