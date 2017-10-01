@@ -9,6 +9,9 @@ import CandyDisplay from './views/CandyDisplay';
 import CandyMap from './views/CandyMap';
 import CandyStatusBar from './views/CandyStatusBar';
 
+// import { TAGS, SIZES } from '../content/Constants';
+import { HOUSE_IDS } from './content/MapHouseContent';
+
 class App extends Component {
 	constructor() {
 		super();
@@ -22,7 +25,7 @@ class App extends Component {
 		GameController.initNewGame();
 
 		// load into the first house
-		this.handleHouseClick(GameController.getHouseById(0));
+		this.handleHouseClick(GameController.findHouse({ id: HOUSE_IDS.INTRO_HOME }));
 	}
 
 	render() {

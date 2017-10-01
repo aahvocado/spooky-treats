@@ -10,6 +10,9 @@ const defaultMapHouse = {
 	y: 50,
 	visited: false,
 };
+const HOUSE_IDS = {
+	INTRO_HOME: 'intro-home-house-id',
+};
 /*
 	copies defaultMapHouse values and adds additional values
 	@param {object} additions - values you want to replace in the defaultMapHouse
@@ -25,7 +28,7 @@ const makeNewHouse = (additions = {}) => {
 */
 const houseList = [
 	makeNewHouse({
-		id: 0,
+		id: HOUSE_IDS.INTRO_HOME,
 		tags: [TAGS.NARRATIVE],
 		storyNodeId: STORY_IDS.BEGINNING_NARRATIVE_1,
 	}),
@@ -34,6 +37,7 @@ const houseList = [
 
 export {
 	defaultMapHouse,
+	HOUSE_IDS,
 	makeNewHouse,
 	houseList,
 };

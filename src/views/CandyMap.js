@@ -39,10 +39,9 @@ export default class CandyMap extends Component {
         const containerStyles = {};
 
         if (selectedHouse) {
-            const { x, y } = selectedHouse;
+            const { x } = selectedHouse;
             // Calculate by finding the center of the Map then offsetting by the House's position
             const xOffset = (window.innerWidth / 2) - x
-            console.log('x', x);
             const yOffset = 0; 
             containerStyles.transform = `translate(${xOffset}px, ${yOffset}px)`;
         }

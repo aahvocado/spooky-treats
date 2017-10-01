@@ -1,8 +1,35 @@
-import Utility from './Utility';
+// import Utility from './Utility';
 
-import { SIZES } from '../content/Constants';
-import { houseList, makeNewHouse } from '../content/MapHouseContent';
+import { TAGS, SIZES } from '../content/Constants';
+import { HOUSE_IDS, houseList, makeNewHouse } from '../content/MapHouseContent';
 
+/*		
+	searches for a predefined house in houseList
+
+	@param {object} filter - options to search against, possible options include
+		id: int - will only return one
+		tags: string
+	@return {object} - object returns an array of found MapHouse
+*/
+const findPredefinedHouse = (filter = {}) => {
+	const { id, tag } = filter;
+	let found = [];
+	for (var i=0; i<houseList.length; i++) {
+		const currSearch = houseList[i];
+		if (id !== undefined) {
+			// match id
+			if(currSearch.id === id) {
+				found.push(currSearch);
+			}
+		} else if (tag !== undefined) {
+			// match tags
+			if(currSearch.tags && currSearch.tags.includes(tag)) {
+				found.push(currSearch);
+			}
+		}
+	}
+	return found.length > 0 ? found[0] : houseList[0];
+};
 
 /*
 	Make a completely new map
@@ -12,9 +39,13 @@ import { houseList, makeNewHouse } from '../content/MapHouseContent';
 const makeNewMap = (mapLength, houseChance) => {
 	let newCandyMap = [];
 	for (var i=0; i<mapLength; i++) {
-		const shouldMakeHouse = Utility.chance(houseChance);
-		if (shouldMakeHouse) {
-			newCandyMap.push(createHouse(i));
+		switch(i) {
+			case 0:
+				newCandyMap.push(findPredefinedHouse(HOUSE_IDS.INTRO_HOME))
+				break;
+			default:
+				newCandyMap.push(createGenericHouse(i));
+				break;
 		}
 	}
 	return newCandyMap;
@@ -26,33 +57,20 @@ const makeNewMap = (mapLength, houseChance) => {
 	@param {int} idx - unique id of this house... we're using an index
 	@return {object} - returns a unique house with type
 */
-const createHouse = (idx) => {
-	const variant = Math.floor(Utility.rng() * 4);
+const createGenericHouse = (idx) => {
+	// const houseVariant = Utility.chance(houseChance);
+
 	const houseData = makeNewHouse({
-		id: idx,
+        tags: [TAGS.GENERIC],
         x: SIZES.HOUSE * idx,
         y: 50,
 	});
 
-    switch(variant) {
-		default:
-			houseData.houseType = "default";
-			return houseData;
-	}
-}
-
-/*
-	Make predefined maps
-	@param {array} existingMaps - tell me what maps we already have
-*/
-const addPredefinedMaps = (existingMaps) => {
-	// intro
-	existingMaps.push(houseList[0]);
-	return existingMaps;
+    return houseData;
 }
 
 export {
+	findPredefinedHouse,
 	makeNewMap,
-	createHouse,
-	addPredefinedMaps,
+	createGenericHouse,
 }

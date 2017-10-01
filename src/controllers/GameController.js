@@ -1,5 +1,5 @@
 import Utility from './Utility';
-import { makeNewMap, addPredefinedMaps } from './MapMaker';
+import { makeNewMap } from './MapMaker';
 import StoryNodes from './StoryNodes';
 import CandyItemManager from './CandyItemManager';
 import SkillEffectsManager from './SkillEffectsManager';
@@ -12,19 +12,32 @@ var inventory;
 var skills;
 
 export default class GameController {
-    /*
-        Gets a House by Id
-        @param {int} id - id of House
-        @return {object} - House
+    /*      
+        searches for a house in the current map
+
+        @param {object} filter - options to search against, possible options include
+            id: string
+            tags: string
+        @return {object} - CandyItem object returns an array of found nodes
     */
-    static getHouseById = (id) => {
+    static findHouse = (filter = {}) => {
+        const { id, tag } = filter;
+        let found = [];
         for (var i=0; i<mapData.length; i++) {
-            const aHouse = mapData[i];
-            if (aHouse.id === id) {
-                return aHouse;
+            const currSearch = mapData[i];
+            if (id !== undefined) {
+                // match id
+                if(currSearch.id === id) {
+                    found.push(currSearch);
+                }
+            } else if (tag !== undefined) {
+                // match tags
+                if(currSearch.tags && currSearch.tags.includes(tag)) {
+                    found.push(currSearch);
+                }
             }
         }
-        return undefined;
+        return found ? found[0] : undefined;
     };
 
      /*
@@ -80,7 +93,7 @@ export default class GameController {
         skills = [];
 
         // new random map data
-        mapData = addPredefinedMaps(makeNewMap(5, 1));
+        mapData = makeNewMap(5, 1);
     };
 
     /*
