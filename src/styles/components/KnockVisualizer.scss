@@ -1,0 +1,23 @@
+@import '../Mixins.scss';
+
+.st-knock-visualizer {
+	position: relative;
+}
+.st-knock-visual-container--item {
+	position: absolute;
+	font-size: 2rem;
+	z-index: 3;
+	pointer-events: none;
+
+	animation: transparent-up 500ms;
+	animation-fill-mode: forwards;
+
+	&:before {
+		content: "KNOCK!";
+	}
+}
+
+@keyframes transparent-up {
+    0% { transform: translateY(0); opacity: 1; }
+    100% { transform: translateY(-60px); opacity: 0; }
+}

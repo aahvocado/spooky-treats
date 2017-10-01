@@ -48,6 +48,7 @@ class App extends Component {
 			<div className="st-app">
 				<CandyMap
 					data={ mapData }
+					knockCount={ currentKnockCount }
 					disabled={ isInConversation }
 					onHouseClick={ this.handleHouseClick }
 					selectedHouse={ selectedHouse }

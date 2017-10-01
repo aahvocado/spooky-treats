@@ -5,6 +5,7 @@ import cn from 'classnames';
 
 import { SIZES } from '../content/Constants';
 import MapHouse from '../components/MapHouse';
+import KnockVisualizer from '../components/KnockVisualizer';
 
 export default class CandyMap extends Component {
     static defaultProps = {
@@ -12,6 +13,7 @@ export default class CandyMap extends Component {
         selectedHouse: undefined,
         onHouseDidClick: () => Promise.resolve(),
         disabled: false,
+        knockCount: 0,
     }
 
     static propTypes = {
@@ -19,10 +21,11 @@ export default class CandyMap extends Component {
         selectedHouse: PropTypes.object,
         onHouseDidClick: PropTypes.func,
         disabled: PropTypes.bool,
+        knockCount: PropTypes.number,
     }
 
     render() {
-        const { data, selectedHouse, disabled } = this.props;
+        const { data, selectedHouse, disabled, knockCount } = this.props;
 
         const housesList = [];
         data.forEach((houseData, idx) => {
@@ -42,7 +45,7 @@ export default class CandyMap extends Component {
         if (selectedHouse) {
             const { x } = selectedHouse;
             // Calculate by finding the center of the Map then offsetting by the House's position
-            const xOffset = (window.innerWidth / 2) - x - (SIZES.HOUSE / 2)
+            const xOffset = (window.innerWidth / 2) - x - (SIZES.HOUSE / 2);
             const yOffset = 0; 
             containerStyles.transform = `translate(${xOffset}px, ${yOffset}px)`;
         }
@@ -50,6 +53,8 @@ export default class CandyMap extends Component {
         return (
             <div className="st-map">
                 <div className={ cn('st-overlay', {'mod-enabled': disabled}) } />
+                <KnockVisualizer
+                    knockCount={ knockCount }/>
                 <div
                     className="st-map--container"
                     style={ containerStyles } >
