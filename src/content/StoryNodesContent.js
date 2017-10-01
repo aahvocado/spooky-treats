@@ -18,10 +18,14 @@ const defaultStoryNode = {
 
 };
 const STORY_IDS = {
+	// narrative
 	BEGINNING_NARRATIVE_1: 'beginning-narrative-1-story-id',
 	BEGINNING_NARRATIVE_2: 'beginning-narrative-2-story-id',
 	BEGINNING_NARRATIVE_3: 'beginning-narrative-3-story-id',
 	BEGINNING_NARRATIVE_4: 'beginning-narrative-4-story-id',
+	KNOCK_TUTORIAL_1: 'knock-tutorial-1-story-id',
+	KNOCK_TUTORIAL_2: 'knock-tutorial-2-story-id',
+	// generic
 	GENERIC_KID_1: 'generic-kid-1-story-id',
 	GENERIC_KID_2: 'generic-kid-2-story-id',
 };
@@ -39,7 +43,8 @@ const makeNewNode = (additions = {}) => {
 	All Story Nodes
 */
 const nodesList = [
-	// intro content
+	// key narrative nodes
+	// --- intro content
 	makeNewNode({
 		id: STORY_IDS.BEGINNING_NARRATIVE_1,
 		tags: [TAGS.NARRATIVE], 
@@ -67,6 +72,15 @@ const nodesList = [
 	makeNewNode({
 		id: STORY_IDS.BEGINNING_NARRATIVE_4,
 		displayText: 'You\'re weird, kiddo.',
+	}),
+	// --- knock knock tutorial
+	makeNewNode({
+		id: STORY_IDS.KNOCK_TUTORIAL_1,
+		tags: [TAGS.NARRATIVE], 
+		displayText: 'Whoops! I\'m not ready yet! H-hold on, you need to knock on the door.\nKnock on the door.\nKnock on the door so I can open it and give you candy.\nTry knocking a couple times.\nDon\'t leave before knocking! You want candy, right?\nJust... just knock on the door, okay? After I close it first!',
+		actionSet: [
+			{ text: 'Okay...', targetId: undefined },
+		],
 	}),
 	// generic story nodes
 	// --- story of the generic kid

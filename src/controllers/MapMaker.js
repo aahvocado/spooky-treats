@@ -43,7 +43,10 @@ const makeNewMap = (mapLength, houseChance) => {
 		let newHouse = {};
 		switch(i) {
 			case 0:
-				newHouse = findPredefinedHouse(HOUSE_IDS.INTRO_HOME);
+				newHouse = findPredefinedHouse({ id: HOUSE_IDS.INTRO_HOME });
+				break;
+			case 1:
+				newHouse = findPredefinedHouse({ id: HOUSE_IDS.KNOCK_TUTORIAL_HOUSE });
 				break;
 			default:
 				newHouse = createGenericHouse(TAGS.GENERIC);
@@ -51,6 +54,7 @@ const makeNewMap = (mapLength, houseChance) => {
 		}
 		newHouse.x = (SIZES.HOUSE + SIZES.HOUSE_DISTANCE) * i;
         newHouse.y = 20;
+        console.log('newHouse', newHouse);
 		newCandyMap.push(newHouse);
 	}
 	return newCandyMap;

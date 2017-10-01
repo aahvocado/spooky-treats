@@ -12,6 +12,7 @@ const defaultMapHouse = {
 };
 const HOUSE_IDS = {
 	INTRO_HOME: 'intro-home-house-id',
+	KNOCK_TUTORIAL_HOUSE: 'knock-tutorial-house-id',
 };
 /*
 	copies defaultMapHouse values and adds additional values
@@ -31,6 +32,11 @@ const houseList = [
 		id: HOUSE_IDS.INTRO_HOME,
 		tags: [TAGS.NARRATIVE],
 		storyNodeId: STORY_IDS.BEGINNING_NARRATIVE_1,
+	}),
+	makeNewHouse({
+		id: HOUSE_IDS.KNOCK_TUTORIAL_HOUSE,
+		tags: [TAGS.NARRATIVE],
+		storyNodeId: STORY_IDS.KNOCK_TUTORIAL_1,
 	}),
 ];
 
