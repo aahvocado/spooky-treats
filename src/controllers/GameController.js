@@ -80,7 +80,7 @@ export default class GameController {
         skills = [];
 
         // new random map data
-        mapData = addPredefinedMaps(makeNewMap(5, 0.3));
+        mapData = addPredefinedMaps(makeNewMap(15, 0.3));
     };
 
     /*

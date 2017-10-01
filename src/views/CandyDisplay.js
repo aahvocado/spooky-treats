@@ -24,7 +24,11 @@ export default class CandyDisplay extends Component {
             <div className="st-display">
                 <div className="st-display--left"></div>
                 { this.renderActionContent() }
-                <div className="st-display--right"></div>
+                <div className="st-display--right">
+                    <button className='st-display--next-house-button'>
+                        Next House
+                    </button>
+                </div>
             </div>
         );
     }

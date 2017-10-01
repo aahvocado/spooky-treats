@@ -39,6 +39,7 @@ const makeNewNode = (additions = {}) => {
 	All Story Nodes
 */
 const nodesList = [
+	// intro content
 	makeNewNode({
 		id: STORY_IDS.BEGINNING_NARRATIVE_1,
 		tags: [TAGS.NARRATIVE], 
@@ -68,6 +69,7 @@ const nodesList = [
 		displayText: 'You\'re weird, kiddo.',
 	}),
 	// generic story nodes
+	// --- story of the generic kid
 	makeNewNode({
 		id: STORY_IDS.GENERIC_KID_1,
 		tags: [TAGS.GENERIC], 

@@ -11,17 +11,30 @@
     display: flex;
     flex-direction: row;
 
-    padding-left: 10%;
-    padding-right: 10%;
-
     span + span {
     	margin-top: 10px;
     	display: block; // forgive me css gods
+    }
+
+    .st-display--next-house-button {
+    	width: 100%;
+		height: 100%;
+
+    	color: white;
+    	font-size: 25px;
     }
 }
 .st-display--left,
 .st-display--right {
 	flex: 0 0 auto;
+	height: auto;
+	width: 100px;
+}
+.st-display--left {
+	border-right: 2px solid $st-basil;
+}
+.st-display--right {
+	border-left: 2px solid $st-basil;
 }
 
 // Action Content

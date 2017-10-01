@@ -29,8 +29,8 @@ const createHouse = (idx) => {
 	const variant = Math.floor(Utility.rng() * 4);
 	const houseData = makeNewHouse({
 		id: idx,
-        x: 100 * idx,
-        y: 50 + Math.random() * 50,
+        x: 350 * idx,
+        y: 40,
 	});
 
     switch(variant) {
