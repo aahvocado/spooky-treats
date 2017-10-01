@@ -12,6 +12,7 @@ const defaultSkillObject = {
 	Effects
 */
 const SKILL_EFFECTS = {
+	TRICKER_TREATER: 'tricker-treater-effect',
 	ROBOTIC: 'robotic-effect',
 };
 
@@ -28,6 +29,12 @@ const makeNewSkill = (additions = {}) => {
 const skillsList = [
 	makeNewSkill({
 		id: 0,
+		name: 'Tricker Treater',
+		description: 'You are imbued with the essence of a yearly tradition of scamming other people out of their candy.',
+		actionSet: [SKILL_EFFECTS.TRICKER_TREATER],
+	}),
+	makeNewSkill({
+		id: 1,
 		name: 'Robotic',
 		description: 'TODO',
 		actionSet: [SKILL_EFFECTS.ROBOTIC],

@@ -1,0 +1,21 @@
+@import '../Mixins.scss';
+
+.st-skills {
+	flex: 0 0 auto;
+
+	width: 150px;
+	height: auto;
+	background: $st-background;
+
+	overflow: auto;
+}
+.st-skills--list {
+	display: flex;
+	flex-direction: row;
+
+	.st-skills--list--item {
+		flex: 0 0 auto;
+		width: 100%;
+		padding: 10px;
+	}
+}

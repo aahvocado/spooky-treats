@@ -7,8 +7,7 @@ import SkillEffectsManager from './SkillEffectsManager';
 var currSeed;
 var mapData;
 var inventory;
-
-// TODO: global constant variables
+var skills;
 
 export default class GameController {
     /*
@@ -58,9 +57,9 @@ export default class GameController {
         @return {object} - Skill
     */
     static receiveSkill = (id) => {
-        const newItem = SkillEffectsManager.getSkill({ id: id });
-        inventory.push(newItem);
-        return newItem;
+        const newSkill = SkillEffectsManager.getSkill({ id: id });
+        skills.push(newSkill);
+        return newSkill;
     };
 
     /*
@@ -72,8 +71,9 @@ export default class GameController {
         currSeed = seed || Utility.makeNewSeed();
         Utility.setSeed(currSeed);
 
-        // new empty inventory
+        // new empty content containers
         inventory = [];
+        skills = [];
 
         // new random map data
         mapData = addPredefinedMaps(makeNewMap(5, 0.3));
@@ -85,9 +85,14 @@ export default class GameController {
     static getMapData = () => (mapData);
 
     /*
-        Gets this game's map data
+        Gets this player's inventory
     */
     static getInventory = () => (inventory);
+
+    /*
+        Gets this player's skills
+    */
+    static getSkills = () => (skills);
 
     /*
         Gets this game's seed

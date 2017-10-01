@@ -31,15 +31,15 @@ const nodesList = [
 	makeNewNode({
 		id: 0,
 		tags: [NODE_TAGS.NARRATIVE], 
-		displayText: 'Still here, kiddo?\nIt\'s Halloween!\nGo out and get some candy.',
+		displayText: 'Still here, kiddo? Aren\'t you a big fan of Tricker Treaters?\nIt\'s Halloween! So go out and spook some candy out of those other kids.\n',
 		actionSet: [
-			{ text: 'Next', targetId: 1 },
+			{ text: 'Next', targetId: 1, giveSkillId: 0 },
 		],
 	}),
 	makeNewNode({
 		id: 1,
 		tags: [NODE_TAGS.NARRATIVE], 
-		displayText: 'Watch out though, some other tricker treaters might try to trick you out of your candy.',
+		displayText: 'Watch out for other Tricker Treaters, though.\nSomething something...',
 		actionSet: [
 			{ text: 'Next', targetId: 2 },
 		],
@@ -49,9 +49,9 @@ const nodesList = [
 		tags: [NODE_TAGS.NARRATIVE], 
 		displayText: 'Anyway, let me see what costumes I might have... What do you think of these?',
 		actionSet: [
-			{ text: 'That Robot Helmet is cool!', targetId: 3, giveSkillId: 0 },
-			{ text: 'Those cat ears are the cutest!', targetId: 3, giveSkillId: 1 },
-			{ text: 'I want to be a ghost!', targetId: 3, giveSkillId: 2 },
+			{ text: 'That Robot Helmet is cool!', targetId: 3, giveSkillId: 1 },
+			{ text: 'Those cat ears are the cutest!', targetId: 3, giveSkillId: 2 },
+			{ text: 'I want to be a ghost!', targetId: 3, giveSkillId: 3 },
 		],
 	}),
 	makeNewNode({

@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
 import CandyInventory from './CandyInventory';
+import CandySkills from './CandySkills';
 
 /*
     CandyStatusBar
@@ -12,15 +13,17 @@ export default class CandyStatusBar extends Component {
     static defaultProps = {
         playerStatus: [],
         inventory: [],
+        skills: [],
     };
 
     static propTypes = {
         playerStatus: PropTypes.array,
         inventory: PropTypes.array,
+        skills: PropTypes.array,
     };
 
     render() {
-        const { inventory } = this.props;
+        const { inventory, skills } = this.props;
 
         return (
             <div className="st-status-bar">
@@ -30,9 +33,9 @@ export default class CandyStatusBar extends Component {
                 <CandyInventory
                     inventory={ inventory }
                 />
-                <div className="st-status-bar--right">
-                
-                </div>
+                <CandySkills
+                    skills={ skills }
+                />
             </div>
         );
     }

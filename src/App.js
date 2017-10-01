@@ -28,8 +28,10 @@ class App extends Component {
 	render() {
 		const { selectedHouse, currentNode } = this.state;
 
+		// we want GameController.js to hold all the data
 		const mapData = GameController.getMapData();
 		const inventory = GameController.getInventory();
+		const skills = GameController.getSkills();
 
 		return (
 			<div className="st-app">
@@ -44,6 +46,7 @@ class App extends Component {
 				/>
 				<CandyStatusBar
 					inventory={ inventory }
+					skills={ skills }
 				/>
 			</div>
 		);
@@ -82,13 +85,13 @@ class App extends Component {
 	*/
 	handleNodeActionClick = (action) => {
 		const { targetId, giveItemId, giveSkillId } = action;
-		if (giveItemId) {
+		if (giveItemId !== undefined) {
 			GameController.receiveItem(giveItemId);
 		}
-		if (giveSkillId) {
-			// GameController.receiveSkill(giveSkillId);
+		if (giveSkillId !== undefined) {
+			GameController.receiveSkill(giveSkillId);
 		}
-		if (targetId) {
+		if (targetId !== undefined) {
 			const newNode = GameController.getNodeById(action.targetId);
 			this.handleNodeChange(newNode);
 		}
