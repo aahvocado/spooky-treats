@@ -73,8 +73,8 @@ const nodesList = [
 		tags: [TAGS.GENERIC], 
 		displayText: 'You see a generic looking kid in a generic looking costume. I didn\'t tell you what costume it was but you can probably just imagine it. It could be a princess or a jedi or a cow or worse... a hotdog.',
 		actionSet: [
-			{ text: 'Give a non-generic haunting!', targetId: STORY_IDS.GENERIC_KID_2, skillRequiredId: SKILL_IDS.SHEET_WITH_HOLES },
-			{ text: 'Play a trick on the generic looking kid!', giveItemId: ITEM_IDS.W_PIECE },
+			{ text: 'Ominously haunt the kid!', targetId: STORY_IDS.GENERIC_KID_2, skillRequiredId: SKILL_IDS.SHEET_WITH_HOLES },
+			{ text: 'Play a generic trick!', giveItemId: ITEM_IDS.W_PIECE },
 		],
 	}),
 	makeNewNode({

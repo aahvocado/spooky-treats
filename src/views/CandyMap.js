@@ -1,6 +1,7 @@
 import '../styles/css/views/CandyMap.css';
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import cn from 'classnames';
 
 import MapHouse from '../components/MapHouse';
 
@@ -9,16 +10,18 @@ export default class CandyMap extends Component {
         data: [],
         selectedHouse: undefined,
         onHouseDidClick: () => Promise.resolve(),
+        disabled: false,
     }
 
     static propTypes = {
         data: PropTypes.array,
         selectedHouse: PropTypes.object,
         onHouseDidClick: PropTypes.func,
+        disabled: PropTypes.bool,
     }
 
     render() {
-        const { data, selectedHouse } = this.props;
+        const { data, selectedHouse, disabled } = this.props;
 
         const housesList = [];
         data.forEach((houseData, idx) => {
@@ -47,6 +50,7 @@ export default class CandyMap extends Component {
 
         return (
             <div className="st-map">
+                <div className={ cn('st-overlay', 'mod-enabled': disabled) } />
                 <div
                     className="st-map--container"
                     style={ containerStyles } >

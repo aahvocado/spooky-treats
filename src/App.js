@@ -33,10 +33,13 @@ class App extends Component {
 		const inventory = GameController.getInventory();
 		const skills = GameController.getSkills();
 
+		const inConversation = currentNode !== undefined;
+
 		return (
 			<div className="st-app">
 				<CandyMap
 					data={ mapData }
+					disabled={ inConversation }
 					selectedHouse={ selectedHouse }
 					onHouseClick={ this.handleHouseClick }
 				/>

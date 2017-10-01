@@ -2,6 +2,7 @@
   height: 300px;
   flex: 0 0 auto;
   background: #c78c4a;
+  position: relative;
   overflow: hidden; }
 
 .st-map--container {
