@@ -1,4 +1,5 @@
 import { nodesList } from '../content/StoryNodesContent';
+import Utility from './Utility';
 
 /*
 	StoryNodes.js
@@ -11,9 +12,10 @@ export default class StoryNodes {
 		@param {object} filter - options to search against, possible options include
 			id: int - will only return one
 			tags: string
+		@param {bool} random - if true, will return a random one from the found list otherwise it will return the frist one
 		@return {object} StoryNode object - returns the first found nodes
 	*/
-	static getNode = (filter = {}) => {
+	static getNode = (filter = {}, random) => {
 		const { id, tag } = filter;
 		let found = [];
 		
@@ -31,7 +33,11 @@ export default class StoryNodes {
 				}
 			}
 		}
-		return found.length > 0 ? found[0] : nodesList[0];
+		if (random && found.length > 1) {
+			const randomIdx = Math.floor(Utility.rng() * found.length);
+			return found[randomIdx];
+		}
+		return found[0];
 	};
 
 	/*

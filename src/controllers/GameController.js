@@ -54,7 +54,7 @@ export default class GameController {
         @return {object} - StoryNode
     */
     static getRandomNode = () => {
-        return StoryNodes.getNode({ tag: TAGS.GENERIC });
+        return StoryNodes.getNode({ tag: TAGS.GENERIC }, true);
     };
 
     /*

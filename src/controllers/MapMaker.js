@@ -1,4 +1,5 @@
 // import Utility from './Utility';
+import StoryNodes from './StoryNodes';
 
 import { TAGS, SIZES } from '../content/Constants';
 import { HOUSE_IDS, houseList, makeNewHouse } from '../content/MapHouseContent';
@@ -45,7 +46,7 @@ const makeNewMap = (mapLength, houseChance) => {
 				newHouse = findPredefinedHouse(HOUSE_IDS.INTRO_HOME);
 				break;
 			default:
-				newHouse = createGenericHouse(i);
+				newHouse = createGenericHouse(TAGS.GENERIC);
 				break;
 		}
 		newHouse.x = (SIZES.HOUSE + SIZES.HOUSE_DISTANCE) * i;
@@ -57,14 +58,13 @@ const makeNewMap = (mapLength, houseChance) => {
 
 /*
 	Creates a random House 
-	TODO: move to MapHouseContent probably
+	@param {string} tagType - a tag type that the story should be created with
 	@return {object} - returns a unique house with type
 */
-const createGenericHouse = () => {
-	// const houseVariant = Utility.chance(houseChance);
-
+const createGenericHouse = (tagType) => {
 	const houseData = makeNewHouse({
-        tags: [TAGS.GENERIC],
+        tags: [tagType],
+        storyNodeId: StoryNodes.getNode({ tag: tagType }, true).id,
 	});
 
     return houseData;
