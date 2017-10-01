@@ -1,8 +1,10 @@
 import { TAGS } from './Constants';
 
 const ITEM_IDS = {
+	W_PIECE: 'w-n-w-piece-item-id',
 	BONEBREAKER: 'bonebreaker-item-id',
 };
+
 /*
 	All Item Content
 */
@@ -44,13 +46,14 @@ const candyList = [
 		description: 'Mmmmm...',
 	},
 	{
-		id: 6,
+		id: ITEM_IDS.W_PIECE,
 		tags: [TAGS.NARRATIVE],
-		name: 'Generic Chocolate Pieces',
-		description: 'Gross.',
+		name: 'W&W Chocolate Button',
+		description: 'Wumbo.',
 	},
 ];
 
 export {
+	ITEM_IDS,
 	candyList,
 };

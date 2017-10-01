@@ -4,6 +4,8 @@ import StoryNodes from './StoryNodes';
 import CandyItemManager from './CandyItemManager';
 import SkillEffectsManager from './SkillEffectsManager';
 
+import { TAGS } from '../content/Constants';
+
 var currSeed;
 var mapData;
 var inventory;
@@ -39,7 +41,7 @@ export default class GameController {
         @return {object} - StoryNode
     */
     static getRandomNode = () => {
-        return StoryNodes.getNode({ id: 1 });
+        return StoryNodes.getNode({ tag: TAGS.GENERIC });
     };
 
     /*

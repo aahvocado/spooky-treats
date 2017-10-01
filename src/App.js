@@ -67,8 +67,8 @@ class App extends Component {
 		@param {object} house - MapHouse data object
 	*/
 	handleHouseClick = (house) => {
-		const { storyNodes } = house;
-		const newNode = storyNodes[0] || GameController.getRandomNode();
+		// const { storyNodes } = house;
+		const newNode = GameController.getRandomNode();
 		if (!house.visited) {
 			house.visited = true; // TODO: this might need to be improved?
 			this.setState({

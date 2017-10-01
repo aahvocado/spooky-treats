@@ -16,10 +16,13 @@ export default class SkillEffectsManager {
 	static getSkill = (filter = {}) => {
 		const { id } = filter;
 		let found = [];
-		if (id) {
-			const currSearch = skillsList[id];
-			if(currSearch.id === id) {
-				found.push(currSearch);
+		for (var i=0; i<skillsList.length; i++) {
+			const currSearch = skillsList[i];
+			if (id !== undefined) {
+				// match id
+				if(currSearch.id === id) {
+					found.push(currSearch);
+				}
 			}
 		}
 		return found.length > 0 ? found[0] : skillsList[0];

@@ -14,12 +14,21 @@ export default class StoryNodes {
 		@return {object} StoryNode object - returns the first found nodes
 	*/
 	static getNode = (filter = {}) => {
-		const { id } = filter;
+		const { id, tag } = filter;
 		let found = [];
-		if (id) {
-			const currSearch = nodesList[id];
-			if(currSearch.id === id) {
-				found.push(currSearch);
+		
+		for (var i=0; i<nodesList.length; i++) {
+			const currSearch = nodesList[i];
+			if (id !== undefined) {
+				// match id
+				if(currSearch.id === id) {
+					found.push(currSearch);
+				}
+			} else if (tag !== undefined) {
+				// match tags
+				if(currSearch.tags && currSearch.tags.includes(tag)) {
+					found.push(currSearch);
+				}
 			}
 		}
 		return found.length > 0 ? found[0] : nodesList[0];
