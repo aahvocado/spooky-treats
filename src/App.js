@@ -13,7 +13,7 @@ class App extends Component {
 	constructor() {
 		super();
 		this.state = {
-			selectedHouse: undefined,
+			selectedHouseIdx: 0,
 		}
 	}
 
@@ -26,12 +26,14 @@ class App extends Component {
 	}
 
 	render() {
-		const { selectedHouse, currentNode } = this.state;
+		const { selectedHouseIdx, currentNode } = this.state;
 
 		// we want GameController.js to hold all the data
 		const mapData = GameController.getMapData();
 		const inventory = GameController.getInventory();
 		const skills = GameController.getSkills();
+
+		const selectedHouse = mapData[selectedHouseIdx];
 
 		const hasActions = currentNode && currentNode.actionSet && currentNode.actionSet.length > 0;
 		const inConversation = hasActions;
@@ -41,13 +43,14 @@ class App extends Component {
 				<CandyMap
 					data={ mapData }
 					disabled={ inConversation }
-					selectedHouse={ selectedHouse }
 					onHouseClick={ this.handleHouseClick }
+					selectedHouse={ selectedHouse }
 				/>
                 <div className="arrow_box" />
 				<CandyDisplay
 					data={ currentNode }
 					onNodeAction={ this.handleNodeActionClick }
+					onNextClick={ this.handleNextHouseClick }
 				/>
 				<CandyStatusBar
 					inventory={ inventory }
@@ -68,20 +71,20 @@ class App extends Component {
 	}
 
 	/*
+	*/
+	handleNextHouseClick = () => {
+		const { selectedHouseIdx } = this.state;
+		this.setState({
+			selectedHouseIdx: selectedHouseIdx + 1,
+		});
+	}
+
+	/*
 		A House was clicked
 		@param {object} house - MapHouse data object
 	*/
 	handleHouseClick = (house) => {
-		const { storyNodeId } = house;
-		const newNode = storyNodeId ? GameController.getNodeById(storyNodeId) : GameController.getRandomNode();
-		if (!house.visited) {
-			house.visited = true; // TODO: this might need to be improved?
-			this.setState({
-				selectedHouse: house,
-			}, () => {
-				this.handleNodeChange(newNode);
-			});
-		}
+		// don't do anything anymore
 	}
 
 	/*

@@ -1,5 +1,6 @@
 import Utility from './Utility';
 
+import { SIZES } from '../content/Constants';
 import { houseList, makeNewHouse } from '../content/MapHouseContent';
 
 
@@ -29,8 +30,8 @@ const createHouse = (idx) => {
 	const variant = Math.floor(Utility.rng() * 4);
 	const houseData = makeNewHouse({
 		id: idx,
-        x: 350 * idx,
-        y: 40,
+        x: SIZES.HOUSE * idx,
+        y: 50,
 	});
 
     switch(variant) {

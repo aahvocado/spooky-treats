@@ -18,7 +18,7 @@ export default class Utility {
 		@return {bool} returns true if chance is less than rng
 	*/
 	static chance = (chance) => {
-		return chance < randomNumberGenerator();
+		return chance >= randomNumberGenerator();
 	};
 
 	/*

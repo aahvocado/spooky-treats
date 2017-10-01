@@ -8,6 +8,12 @@ const TAGS = {
 	MEDIUM_DIFFICULTY: 'medium-difficulty-tag',
 };
 
+// global pixel size of certain objects
+const SIZES = {
+	HOUSE: 350,
+};
+
 export {
 	TAGS,
+	SIZES,
 }

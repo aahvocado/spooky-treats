@@ -10,7 +10,6 @@ const defaultMapHouse = {
 	y: 50,
 	visited: false,
 };
-
 /*
 	copies defaultMapHouse values and adds additional values
 	@param {object} additions - values you want to replace in the defaultMapHouse
