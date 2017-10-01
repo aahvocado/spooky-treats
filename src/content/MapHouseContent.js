@@ -6,8 +6,8 @@ const defaultMapHouse = {
 	tags: [], // tags this house might be related to
 	nearbyTags: [], // type of StoryNodes that might be nearby
 	storyNodeId: '', // StoryNode objcts that will show up when clicked
-	x: 100,
-	y: 50,
+	x: -1,
+	y: -1,
 	visited: false,
 };
 const HOUSE_IDS = {

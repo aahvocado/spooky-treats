@@ -22,6 +22,11 @@
 
     	color: white;
     	font-size: 25px;
+
+    	&:disabled {
+    		color: #949494;
+    		cursor: default;
+    	}
     }
 }
 .st-display--left,

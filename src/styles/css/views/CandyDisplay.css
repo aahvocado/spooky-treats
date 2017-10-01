@@ -14,6 +14,9 @@
     height: 100%;
     color: white;
     font-size: 25px; }
+    .st-display .st-display--next-house-button:disabled {
+      color: #949494;
+      cursor: default; }
 
 .st-display--left,
 .st-display--right {

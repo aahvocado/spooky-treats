@@ -39,14 +39,18 @@ const findPredefinedHouse = (filter = {}) => {
 const makeNewMap = (mapLength, houseChance) => {
 	let newCandyMap = [];
 	for (var i=0; i<mapLength; i++) {
+		let newHouse = {};
 		switch(i) {
 			case 0:
-				newCandyMap.push(findPredefinedHouse(HOUSE_IDS.INTRO_HOME))
+				newHouse = findPredefinedHouse(HOUSE_IDS.INTRO_HOME);
 				break;
 			default:
-				newCandyMap.push(createGenericHouse(i));
+				newHouse = createGenericHouse(i);
 				break;
 		}
+		newHouse.x = (SIZES.HOUSE + SIZES.HOUSE_DISTANCE) * i;
+        newHouse.y = 50;
+		newCandyMap.push(newHouse);
 	}
 	return newCandyMap;
 }
@@ -54,16 +58,13 @@ const makeNewMap = (mapLength, houseChance) => {
 /*
 	Creates a random House 
 	TODO: move to MapHouseContent probably
-	@param {int} idx - unique id of this house... we're using an index
 	@return {object} - returns a unique house with type
 */
-const createGenericHouse = (idx) => {
+const createGenericHouse = () => {
 	// const houseVariant = Utility.chance(houseChance);
 
 	const houseData = makeNewHouse({
         tags: [TAGS.GENERIC],
-        x: (SIZES.HOUSE + SIZES.HOUSE_DISTANCE) * idx,
-        y: 50,
 	});
 
     return houseData;

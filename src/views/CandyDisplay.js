@@ -13,15 +13,19 @@ export default class CandyDisplay extends Component {
         data: {},
         displayText: '',
         onNextClick: () => Promise.resolve(),
+        disableNext: false,
     };
 
     static propTypes = {
         data: PropTypes.object,
         displayText: PropTypes.string,
         onNextClick: PropTypes.func,
+        disableNext: PropTypes.bool,
     };
 
     render() {
+        const { disableNext } = this.props;
+
         return (
             <div className="st-display">
                 <div className="st-display--left"></div>
@@ -29,6 +33,7 @@ export default class CandyDisplay extends Component {
                 <div className="st-display--right">
                     <button className='st-display--next-house-button'
                         onClick={ this.handleNextClick }
+                        disabled={ disableNext }
                     >
                         Next House
                     </button>

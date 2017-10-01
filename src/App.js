@@ -10,7 +10,7 @@ import CandyMap from './views/CandyMap';
 import CandyStatusBar from './views/CandyStatusBar';
 
 // import { TAGS, SIZES } from '../content/Constants';
-import { HOUSE_IDS } from './content/MapHouseContent';
+// import { HOUSE_IDS } from './content/MapHouseContent';
 
 class App extends Component {
 	constructor() {
@@ -25,18 +25,16 @@ class App extends Component {
 		GameController.initNewGame();
 
 		// load into the first house
-		this.handleHouseClick(GameController.findHouse({ id: HOUSE_IDS.INTRO_HOME }));
+		this.navigateToHouse(0);
 	}
 
 	render() {
-		const { selectedHouseIdx, currentNode } = this.state;
+		const { selectedHouse, currentNode } = this.state;
 
 		// we want GameController.js to hold all the data
 		const mapData = GameController.getMapData();
 		const inventory = GameController.getInventory();
 		const skills = GameController.getSkills();
-
-		const selectedHouse = mapData[selectedHouseIdx];
 
 		const hasActions = currentNode && currentNode.actionSet && currentNode.actionSet.length > 0;
 		const inConversation = hasActions;
@@ -54,6 +52,7 @@ class App extends Component {
 					data={ currentNode }
 					onNodeAction={ this.handleNodeActionClick }
 					onNextClick={ this.handleNextHouseClick }
+					disableNext={ inConversation }
 				/>
 				<CandyStatusBar
 					inventory={ inventory }
@@ -74,11 +73,27 @@ class App extends Component {
 	}
 
 	/*
+		when the next house button is clicked we gotta do stuff
 	*/
 	handleNextHouseClick = () => {
 		const { selectedHouseIdx } = this.state;
+
+		const nextIdx = selectedHouseIdx + 1;
+		this.navigateToHouse(nextIdx);
+	}
+
+	/*
+
+	*/
+	navigateToHouse = (nextIdx) => {
+		const mapData = GameController.getMapData();
+		const nextHouse = mapData[nextIdx];
+		const nextNode = nextHouse.storyNodeId ? GameController.getNodeById(nextHouse.storyNodeId) : undefined;
+		console.log('nextHouse', nextHouse);
 		this.setState({
-			selectedHouseIdx: selectedHouseIdx + 1,
+			selectedHouseIdx: nextIdx,
+			selectedHouse: nextHouse,
+			currentNode: nextNode,
 		});
 	}
 
