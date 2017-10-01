@@ -14,6 +14,7 @@ export default class CandyDisplay extends Component {
         displayText: '',
         onNextClick: () => Promise.resolve(),
         disableNext: false,
+        isDoorAnswered: false,
     };
 
     static propTypes = {
@@ -21,6 +22,7 @@ export default class CandyDisplay extends Component {
         displayText: PropTypes.string,
         onNextClick: PropTypes.func,
         disableNext: PropTypes.bool,
+        isDoorAnswered: PropTypes.bool,
     };
 
     render() {
@@ -44,7 +46,7 @@ export default class CandyDisplay extends Component {
 
     // TODO: move to own component
     renderActionContent() {
-        const { data } = this.props;
+        const { data, isDoorAnswered } = this.props;
         const { displayText, actionSet } = data;
 
         let actionButtonList = [];
@@ -66,10 +68,12 @@ export default class CandyDisplay extends Component {
         return (
             <div className="st-display--middle">
                 <div className="st-display-text">
-                    { nl2br(displayText) }
+                    { isDoorAnswered &&
+                        nl2br(displayText)
+                    }
                 </div>
                 <div className="st-display-actions">
-                    { hasAction &&
+                    { hasAction && isDoorAnswered &&
                         actionButtonList
                     }
                 </div>

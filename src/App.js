@@ -16,7 +16,10 @@ class App extends Component {
 	constructor() {
 		super();
 		this.state = {
-			selectedHouseIdx: 0,
+			selectedHouseIdx: 0, // we are default setting here
+			selectedHouse: undefined,
+			currentNode: undefined,
+			currentKnockCount: 0,
 		}
 	}
 
@@ -29,21 +32,23 @@ class App extends Component {
 	}
 
 	render() {
-		const { selectedHouse, currentNode } = this.state;
+		const { selectedHouse, currentNode, currentKnockCount } = this.state;
 
 		// we want GameController.js to hold all the data
 		const mapData = GameController.getMapData();
 		const inventory = GameController.getInventory();
 		const skills = GameController.getSkills();
 
+		const isDoorAnswered = currentNode && currentKnockCount >= currentNode.knockCount;
 		const hasActions = currentNode && currentNode.actionSet && currentNode.actionSet.length > 0;
-		const inConversation = hasActions;
+		const isInConversation = hasActions && isDoorAnswered;
+
 
 		return (
 			<div className="st-app">
 				<CandyMap
 					data={ mapData }
-					disabled={ inConversation }
+					disabled={ isInConversation }
 					onHouseClick={ this.handleHouseClick }
 					selectedHouse={ selectedHouse }
 				/>
@@ -52,7 +57,8 @@ class App extends Component {
 					data={ currentNode }
 					onNodeAction={ this.handleNodeActionClick }
 					onNextClick={ this.handleNextHouseClick }
-					disableNext={ inConversation }
+					isDoorAnswered={ isDoorAnswered }
+					disableNext={ isInConversation }
 				/>
 				<CandyStatusBar
 					inventory={ inventory }
@@ -94,15 +100,21 @@ class App extends Component {
 			selectedHouseIdx: nextIdx,
 			selectedHouse: nextHouse,
 			currentNode: nextNode,
+			currentKnockCount: 0,
 		});
 	}
 
 	/*
-		A House was clicked
+		A House was clicked - represents knocking on the door
 		@param {object} house - MapHouse data object
 	*/
 	handleHouseClick = (house) => {
-		// don't do anything anymore
+		const { currentKnockCount } = this.state;
+		const nextKnock = currentKnockCount + 1;
+
+		this.setState({
+			currentKnockCount: nextKnock,
+		});
 	}
 
 	/*
