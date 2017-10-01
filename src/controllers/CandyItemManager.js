@@ -14,12 +14,20 @@ export default class CandyItemManager {
 		@return {object} - CandyItem object returns an array of found nodes
 	*/
 	static getItem = (filter = {}) => {
-		const { id } = filter;
+		const { id, tag } = filter;
 		let found = [];
-		if (id) {
-			const currSearch = candyList[id];
-			if(currSearch.id === id) {
-				found.push(currSearch);
+		for (var i=0; i<candyList.length; i++) {
+			const currSearch = candyList[i];
+			if (id !== undefined) {
+				// match id
+				if(currSearch.id === id) {
+					found.push(currSearch);
+				}
+			} else if (tag !== undefined) {
+				// match tags
+				if(currSearch.tags && currSearch.tags.includes(tag)) {
+					found.push(currSearch);
+				}
 			}
 		}
 		return found.length > 0 ? found[0] : candyList[0];

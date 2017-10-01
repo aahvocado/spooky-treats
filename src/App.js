@@ -94,6 +94,8 @@ class App extends Component {
 		if (targetId !== undefined) {
 			const newNode = GameController.getNodeById(action.targetId);
 			this.handleNodeChange(newNode);
+		} else {
+			this.handleNodeChange(undefined);
 		}
 	}
 
