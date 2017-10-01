@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
 
+import { SIZES } from '../content/Constants';
 import MapHouse from '../components/MapHouse';
 
 export default class CandyMap extends Component {
@@ -41,7 +42,7 @@ export default class CandyMap extends Component {
         if (selectedHouse) {
             const { x } = selectedHouse;
             // Calculate by finding the center of the Map then offsetting by the House's position
-            const xOffset = (window.innerWidth / 2) - x
+            const xOffset = (window.innerWidth / 2) - x - (SIZES.HOUSE / 2)
             const yOffset = 0; 
             containerStyles.transform = `translate(${xOffset}px, ${yOffset}px)`;
         }

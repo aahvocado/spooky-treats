@@ -21,7 +21,7 @@ export default class MapHouse extends Component {
 
     render() {
         const { data } = this.props;
-        const { id, x, y, visited } = data;
+        const { x, y, visited } = data;
         const style = {
             left: x,
             top: y,
@@ -39,7 +39,6 @@ export default class MapHouse extends Component {
                 <button
                      className="st-map-house--button"
                      onClick={ this.handleHouseClick } >
-                    { `House ${id}` }
                 </button>
             </span>
         );

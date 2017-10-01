@@ -62,7 +62,7 @@ const createGenericHouse = (idx) => {
 
 	const houseData = makeNewHouse({
         tags: [TAGS.GENERIC],
-        x: SIZES.HOUSE * idx,
+        x: (SIZES.HOUSE + SIZES.HOUSE_DISTANCE) * idx,
         y: 50,
 	});
 

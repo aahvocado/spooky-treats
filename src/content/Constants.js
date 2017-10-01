@@ -10,7 +10,8 @@ const TAGS = {
 
 // global pixel size of certain objects
 const SIZES = {
-	HOUSE: 550,
+	HOUSE: 350,
+	HOUSE_DISTANCE: 200,
 };
 
 export {
