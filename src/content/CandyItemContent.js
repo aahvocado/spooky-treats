@@ -1,7 +1,5 @@
-const ITEM_TAGS = {
-	NARRATIVE: 'narrative-bone',
-	BONES: 'bone-item'
-};
+import { TAGS } from './Constants';
+
 const ITEM_IDS = {
 	BONEBREAKER: 'bonebreaker-item-id',
 };
@@ -11,13 +9,13 @@ const ITEM_IDS = {
 const candyList = [
 	{
 		id: ITEM_IDS.BONEBREAKER, // unique id of this item
-		tags: [ITEM_TAGS.NARRATIVE], // tags this item might be related to
+		tags: [TAGS.NARRATIVE], // tags this item might be related to
 		name: 'Error',
 		description: 'You got an ERROR'
 	},
 	{
 		id: 1,
-		tags: [ITEM_TAGS.BONES],
+		tags: [TAGS.BONES],
 		name: 'BoneBreaker',
 		description: 'I have never heard of no jaw bone.',
 	},
@@ -47,13 +45,12 @@ const candyList = [
 	},
 	{
 		id: 6,
-		tags: [ITEM_TAGS.NARRATIVE],
+		tags: [TAGS.NARRATIVE],
 		name: 'Generic Chocolate Pieces',
 		description: 'Gross.',
 	},
 ];
 
 export {
-	ITEM_TAGS,
 	candyList,
 };

@@ -48,6 +48,7 @@ const skillsList = [
 
 export {
 	defaultSkillObject,
+	SKILL_IDS,
 	makeNewSkill,
 	skillsList,
 };
