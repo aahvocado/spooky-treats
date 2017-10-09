@@ -33,11 +33,17 @@ export default class StoryNodes {
 				}
 			}
 		}
+
 		if (random && found.length > 1) {
 			const randomIdx = Math.floor(Utility.rng() * found.length);
+			found[randomIdx].used = true;
 			return found[randomIdx];
+		} else if (found && found.length > 0) {
+			found[0].used = true;
+			return found[0];
+		} else {
+			return {};
 		}
-		return found[0];
 	};
 
 	/*

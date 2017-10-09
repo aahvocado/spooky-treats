@@ -95,7 +95,8 @@ class App extends Component {
 	navigateToHouse = (nextIdx) => {
 		const mapData = GameController.getMapData();
 		const nextHouse = mapData[nextIdx];
-		const nextNode = nextHouse.storyNodeId ? GameController.getNodeById(nextHouse.storyNodeId) : undefined;
+		nextHouse.visited = true;
+		const nextNode = nextHouse.storyNode || undefined;
 
 		this.setState({
 			selectedHouseIdx: nextIdx,

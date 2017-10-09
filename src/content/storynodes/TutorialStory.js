@@ -1,8 +1,7 @@
-import { makeNewNode } from '../StoryNodesContent';
+import Utility from '../../controllers/Utility';
 import { TAGS } from '../Constants';
 // import { ITEM_IDS } from './CandyItemContent';
 import { SKILL_IDS } from '../SkillsContent';
-
 
 const STORY_IDS = {
 	// narrative
@@ -15,7 +14,7 @@ const STORY_IDS = {
 const nodesList = [
 	// key narrative nodes
 	// --- intro content
-	makeNewNode({
+	Utility.makeNewNode({
 		id: STORY_IDS.BEGINNING_NARRATIVE_1,
 		tags: [TAGS.NARRATIVE], 
 		displayText: '"Still here, kiddo? Aren\'t you a big fan of Halloween?\nIt\'s already evening and there\'s candy to be gotten. So out and spook and scam and trick to get all the candy you can stomach!"',
@@ -23,14 +22,14 @@ const nodesList = [
 			{ text: 'Next', targetId: STORY_IDS.BEGINNING_NARRATIVE_2, giveSkillId: SKILL_IDS.TRICKER_TREATER },
 		],
 	}),
-	makeNewNode({
+	Utility.makeNewNode({
 		id: STORY_IDS.BEGINNING_NARRATIVE_2,
 		displayText: '"Watch out for other Tricker Treaters, though."\nSomething something...',
 		actionSet: [
 			{ text: 'Next', targetId: STORY_IDS.BEGINNING_NARRATIVE_3 },
 		],
 	}),
-	makeNewNode({
+	Utility.makeNewNode({
 		id: STORY_IDS.BEGINNING_NARRATIVE_3,
 		displayText: '"Anyway, let me see what costumes I might have... What do you think of these?"',
 		actionSet: [
@@ -39,7 +38,7 @@ const nodesList = [
 			{ text: 'I want to be a spooky ghost!', targetId: STORY_IDS.BEGINNING_NARRATIVE_4, giveSkillId: SKILL_IDS.SHEET_WITH_HOLES },
 		],
 	}),
-	makeNewNode({
+	Utility.makeNewNode({
 		id: STORY_IDS.BEGINNING_NARRATIVE_4,
 		displayText: '"You are one weird kid."',
 	}),

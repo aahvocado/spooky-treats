@@ -1,10 +1,22 @@
 import seedrandom from 'seedrandom';
 import randomstring from 'randomstring';
 
+import { defaultStoryNode } from '../content/Constants';
+
 var dev = true;
 var randomNumberGenerator = () => {};
 
 export default class Utility {
+	/*
+		copies defaultStoryNode values and adds additional values
+		@param {object} additions - values you want to replace in the defaultStoryNode
+		@return {object} - StoryNode data
+	*/
+	static makeNewNode = (additions = {}) => {
+		const newNode = Object.assign({}, defaultStoryNode);
+		return Object.assign(newNode, additions);
+	};
+
 	/*
 		random number generator function
 		@return {function} it's the way seedrandom works

@@ -29,6 +29,7 @@ const findPredefinedHouse = (filter = {}) => {
 			}
 		}
 	}
+	// console.log(found);
 	return found.length > 0 ? found[0] : houseList[0];
 };
 
@@ -65,9 +66,10 @@ const makeNewMap = (mapLength, houseChance) => {
 	@return {object} - returns a unique house with type
 */
 const createGenericHouse = (tagType) => {
+	const node = StoryNodes.getNode({ tag: tagType }, true);
 	const houseData = makeNewHouse({
         tags: [tagType],
-        storyNodeId: StoryNodes.getNode({ tag: tagType }, true).id,
+        storyNode: node,
 	});
 
     return houseData;

@@ -1,11 +1,12 @@
 import { TAGS } from './Constants';
 import { STORY_IDS } from './StoryNodesContent';
+import StoryNodes from '../controllers/StoryNodes';
 
 const defaultMapHouse = {
 	id: -1, // unique id of this house
 	tags: [], // tags this house might be related to
 	nearbyTags: [], // type of StoryNodes that might be nearby
-	storyNodeId: '', // StoryNode objcts that will show up when clicked
+	storyNode: '', // StoryNode objcts that will show up when clicked
 	x: -1,
 	y: -1,
 	visited: false,
@@ -31,12 +32,12 @@ const houseList = [
 	makeNewHouse({
 		id: HOUSE_IDS.INTRO_HOME,
 		tags: [TAGS.NARRATIVE],
-		storyNodeId: STORY_IDS.BEGINNING_NARRATIVE_1,
+		storyNode: StoryNodes.getNode({ id: STORY_IDS.BEGINNING_NARRATIVE_1 }),
 	}),
 	makeNewHouse({
 		id: HOUSE_IDS.KNOCK_TUTORIAL_HOUSE,
 		tags: [TAGS.NARRATIVE],
-		storyNodeId: STORY_IDS.KNOCK_TUTORIAL_1,
+		storyNode: StoryNodes.getNode({ id: STORY_IDS.KNOCK_TUTORIAL_1 }),
 	}),
 ];
 
